@@ -1,6 +1,3 @@
-# Library v2
-Sistema Bibliotecario
+# Sistema de arriendos / Libros / Bodegas / Carros / etc.
+Arriendo de productos
 
-### Version 2.0
-
-- Gestion Libros
