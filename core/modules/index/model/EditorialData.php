@@ -1,0 +1,60 @@
+<?php
+class EditorialData {
+	public static $tablename = "editorial";
+
+
+	public function EditorialData(){
+		$this->name = "";
+		$this->direccion = "";
+        $this->contacto = "";
+		
+		$this->lastname = "";
+		$this->email = "";
+		$this->password = "";
+		$this->created_at = "NOW()";
+	}
+
+	public function add(){
+		$sql = "insert into ".self::$tablename." (name,direccion,contacto) ";
+		$sql .= "value (\"$this->name\",\"$this->direccion\",\"$this->contacto\")";
+		return Executor::doit($sql);
+	}
+
+	public static function delById($id){
+		$sql = "delete from ".self::$tablename." where id=$id";
+		Executor::doit($sql);
+	}
+	public function del(){
+		$sql = "delete from ".self::$tablename." where id=$this->id";
+		Executor::doit($sql);
+	}
+
+// partiendo de que ya tenemos creado un objecto EditorialData previamente utilizamos el contexto
+	public function update(){
+		$sql = "update ".self::$tablename." set name=\"$this->name\",direccion=\"$this->direccion\",contacto=\"$this->contacto\" where id=$this->id";
+		Executor::doit($sql);
+	}
+
+	public static function getById($id){
+		$sql = "select * from ".self::$tablename." where id=$id";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new EditorialData());
+	}
+
+	public static function getAll(){
+		$sql = "select * from ".self::$tablename;
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new EditorialData());
+
+	}
+	
+	public static function getLike($q){
+		$sql = "select * from ".self::$tablename." where name like '%$q%'";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new EditorialData());
+	}
+
+
+}
+
+?>
