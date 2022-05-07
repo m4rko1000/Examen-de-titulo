@@ -1,14 +1,7 @@
 <?php
-/**
-* BookMedik v2.0
-* @brief Libera la bestia ...
-**/
 
 session_start();
-include "core/autoload.php";
+include "coreautoload.php";
 
 $lb = new Lb();
 $lb->loadModule("index");
-
-
-?>
