@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,12 +9,13 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
+
 namespace PhpOffice\PhpWord\Style;
 
 /**
@@ -62,8 +64,8 @@ class Image extends Frame
         parent::__construct();
         $this->setUnit('px');
 
-        // Backward compatilibity setting
-        // @todo Remove on 1.0.0
+
+
         $this->setWrap(self::WRAPPING_STYLE_INLINE);
         $this->setHPos(self::POSITION_HORIZONTAL_LEFT);
         $this->setHPosRelTo(self::POSITION_RELATIVE_TO_CHAR);

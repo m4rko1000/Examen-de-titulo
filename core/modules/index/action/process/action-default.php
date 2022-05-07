@@ -30,7 +30,7 @@ if( $go && isset($_SESSION["cart"])){
 			unset($_SESSION["cart"]);
 			setcookie("selled","selled");
 		}
-////////////////////
+
 		}
 	}
 if($go){
@@ -39,7 +39,3 @@ print "<script>window.location='index.php?view=rents';</script>";
 print "<script>alert('Rango de fecha invalido!');</script>";
 print "<script>window.location='index.php?view=rent';</script>";
 }
-
-
-
-?>

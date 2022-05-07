@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Element;
@@ -74,11 +75,11 @@ class Image extends AbstractElement
         $xmlWriter->startElement('v:imagedata');
         $xmlWriter->writeAttribute('r:id', 'rId' . $rId);
         $xmlWriter->writeAttribute('o:title', '');
-        $xmlWriter->endElement(); // v:imagedata
+        $xmlWriter->endElement();
 
-        $xmlWriter->endElement(); // v:shape
-        $xmlWriter->endElement(); // w:pict
-        $xmlWriter->endElement(); // w:r
+        $xmlWriter->endElement();
+        $xmlWriter->endElement();
+        $xmlWriter->endElement();
 
         $this->endElementP();
     }
@@ -106,10 +107,10 @@ class Image extends AbstractElement
         $xmlWriter->startElement('v:imagedata');
         $xmlWriter->writeAttribute('r:id', 'rId' . $rId);
         $xmlWriter->writeAttribute('o:title', '');
-        $xmlWriter->endElement(); // v:imagedata
-        $xmlWriter->endElement(); // v:shape
-        $xmlWriter->endElement(); // w:pict
-        $xmlWriter->endElement(); // w:r
-        $xmlWriter->endElement(); // w:p
+        $xmlWriter->endElement();
+        $xmlWriter->endElement();
+        $xmlWriter->endElement();
+        $xmlWriter->endElement();
+        $xmlWriter->endElement();
     }
 }

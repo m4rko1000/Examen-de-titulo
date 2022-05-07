@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Style;
@@ -29,7 +30,7 @@ use PhpOffice\PhpWord\Style;
 class ListItem extends AbstractStyle
 {
     const TYPE_SQUARE_FILLED = 1;
-    const TYPE_BULLET_FILLED = 3; // default
+    const TYPE_BULLET_FILLED = 3;
     const TYPE_BULLET_EMPTY = 5;
     const TYPE_NUMBER = 7;
     const TYPE_NUMBER_NESTED = 8;
@@ -147,17 +148,17 @@ class ListItem extends AbstractStyle
      */
     private function getListTypeStyle()
     {
-        // Check if legacy style already registered in global Style collection
+
         $numStyle = "PHPWordList{$this->listType}";
         if (Style::getStyle($numStyle) !== null) {
             $this->setNumStyle($numStyle);
             return;
         }
 
-        // Property mapping for numbering level information
+
         $properties = array('start', 'format', 'text', 'align', 'tabPos', 'left', 'hanging', 'font', 'hint');
 
-        // Legacy level information
+
         $listTypeStyles = array(
             self::TYPE_SQUARE_FILLED => array(
                 'type' => 'hybridMultilevel',
@@ -245,7 +246,7 @@ class ListItem extends AbstractStyle
             ),
         );
 
-        // Populate style and register to global Style register
+
         $style = $listTypeStyles[$this->listType];
         foreach ($style['levels'] as $key => $value) {
             $level = array();

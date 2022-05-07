@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Element;
@@ -52,20 +53,20 @@ class Title extends AbstractElement
         $rId = $element->getRelationId();
         $bookmarkRId = $element->getPhpWord()->addBookmark();
 
-        // Bookmark start for TOC
+
         $xmlWriter->startElement('w:bookmarkStart');
         $xmlWriter->writeAttribute('w:id', $bookmarkRId);
         $xmlWriter->writeAttribute('w:name', "_Toc{$rId}");
         $xmlWriter->endElement();
 
-        // Actual text
+
         $xmlWriter->startElement('w:r');
         $xmlWriter->startElement('w:t');
         $xmlWriter->writeRaw($this->getText($element->getText()));
         $xmlWriter->endElement();
         $xmlWriter->endElement();
 
-        // Bookmark end
+
         $xmlWriter->startElement('w:bookmarkEnd');
         $xmlWriter->writeAttribute('w:id', $bookmarkRId);
         $xmlWriter->endElement();

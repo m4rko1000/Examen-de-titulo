@@ -8,11 +8,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Element;
@@ -50,28 +50,28 @@ class Chart extends AbstractElement
         $xmlWriter->startElement('w:drawing');
         $xmlWriter->startElement('wp:inline');
 
-        // EMU
+        
         $xmlWriter->writeElementBlock('wp:extent', array('cx' => $style->getWidth(), 'cy' => $style->getHeight()));
         $xmlWriter->writeElementBlock('wp:docPr', array('id' => $rId, 'name' => "Chart{$rId}"));
 
         $xmlWriter->startElement('a:graphic');
-        $xmlWriter->writeAttribute('xmlns:a', 'http://schemas.openxmlformats.org/drawingml/2006/main');
+        $xmlWriter->writeAttribute('xmlns:a', 'http:
         $xmlWriter->startElement('a:graphicData');
-        $xmlWriter->writeAttribute('uri', 'http://schemas.openxmlformats.org/drawingml/2006/chart');
+        $xmlWriter->writeAttribute('uri', 'http:
 
         $xmlWriter->startElement('c:chart');
         $xmlWriter->writeAttribute('r:id', "rId{$rId}");
-        $xmlWriter->writeAttribute('xmlns:c', 'http://schemas.openxmlformats.org/drawingml/2006/chart');
-        $xmlWriter->writeAttribute('xmlns:r', 'http://schemas.openxmlformats.org/officeDocument/2006/relationships');
-        $xmlWriter->endElement(); // c:chart
+        $xmlWriter->writeAttribute('xmlns:c', 'http:
+        $xmlWriter->writeAttribute('xmlns:r', 'http:
+        $xmlWriter->endElement(); 
 
-        $xmlWriter->endElement(); // a:graphicData
-        $xmlWriter->endElement(); // a:graphic
+        $xmlWriter->endElement(); 
+        $xmlWriter->endElement(); 
 
-        $xmlWriter->endElement(); // wp:inline
-        $xmlWriter->endElement(); // w:drawing
-        $xmlWriter->endElement(); // w:r
+        $xmlWriter->endElement(); 
+        $xmlWriter->endElement(); 
+        $xmlWriter->endElement(); 
 
-        $this->endElementP(); // w:p
+        $this->endElementP(); 
     }
 }

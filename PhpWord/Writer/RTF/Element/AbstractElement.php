@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\RTF\Element;
@@ -59,7 +60,7 @@ abstract class AbstractElement extends HTMLAbstractElement
         /** @var \PhpOffice\PhpWord\Element\Text $element Type hint */
         $element = $this->element;
 
-        // Font style
+
         if (method_exists($element, 'getFontStyle')) {
             $this->fontStyle = $element->getFontStyle();
             if (is_string($this->fontStyle)) {
@@ -67,7 +68,7 @@ abstract class AbstractElement extends HTMLAbstractElement
             }
         }
 
-        // Paragraph style
+
         if (method_exists($element, 'getParagraphStyle')) {
             $this->paragraphStyle = $element->getParagraphStyle();
             if (is_string($this->paragraphStyle)) {
@@ -143,7 +144,7 @@ abstract class AbstractElement extends HTMLAbstractElement
         /** @var \PhpOffice\PhpWord\Writer\RTF $parentWriter Type hint */
         $parentWriter = $this->parentWriter;
 
-        // Create style writer and set color/name index
+
         $styleWriter = new FontStyleWriter($this->fontStyle);
         if ($this->fontStyle->getColor() != null) {
             $colorIndex = array_search($this->fontStyle->getColor(), $parentWriter->getColorTable());
@@ -158,7 +159,7 @@ abstract class AbstractElement extends HTMLAbstractElement
             }
         }
 
-        // Write style
+
         $content = $styleWriter->write();
 
         return $content;

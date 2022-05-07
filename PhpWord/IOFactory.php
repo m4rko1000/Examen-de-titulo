@@ -1,8 +1,9 @@
 <?php
+
 /**
  * PHPWord
- * @link        https://github.com/PHPOffice/PHPWord
- * @license     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt LGPL
+ * @link        https:
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord;

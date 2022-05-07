@@ -8,11 +8,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer;
@@ -207,19 +207,19 @@ abstract class AbstractWriter implements WriterInterface
     /**
      * Get temporary file name
      *
-     * If $filename is php://output or php://stdout, make it a temporary file
+     * If $filename is php:
      *
      * @param string $filename
      * @return string
      */
     protected function getTempFile($filename)
     {
-        // Temporary directory
+        
         $this->setTempDir(Settings::getTempDir() . '/PHPWordWriter/');
 
-        // Temporary file
+        
         $this->originalFilename = $filename;
-        if (strtolower($filename) == 'php://output' || strtolower($filename) == 'php://stdout') {
+        if (strtolower($filename) == 'php:
             $filename = tempnam(Settings::getTempDir(), 'PhpWord');
             if (false === $filename) {
                 $filename = $this->originalFilename;
@@ -239,12 +239,12 @@ abstract class AbstractWriter implements WriterInterface
     protected function cleanupTempFile()
     {
         if ($this->originalFilename != $this->tempFilename) {
-            // @codeCoverageIgnoreStart
-            // Can't find any test case. Uncomment when found.
+            
+            
             if (false === copy($this->tempFilename, $this->originalFilename)) {
                 throw new CopyFileException($this->tempFilename, $this->originalFilename);
             }
-            // @codeCoverageIgnoreEnd
+            
             @unlink($this->tempFilename);
         }
 
@@ -272,22 +272,22 @@ abstract class AbstractWriter implements WriterInterface
      */
     protected function getZipArchive($filename)
     {
-        // Remove any existing file
+        
         if (file_exists($filename)) {
             unlink($filename);
         }
 
-        // Try opening the ZIP file
+        
         $zip = new ZipArchive();
 
-        // @codeCoverageIgnoreStart
-        // Can't find any test case. Uncomment when found.
+        
+        
         if ($zip->open($filename, ZipArchive::OVERWRITE) !== true) {
             if ($zip->open($filename, ZipArchive::CREATE) !== true) {
                 throw new \Exception("Could not open '{$filename}' for writing.");
             }
         }
-        // @codeCoverageIgnoreEnd
+        
 
         return $zip;
     }
@@ -304,12 +304,12 @@ abstract class AbstractWriter implements WriterInterface
     {
         $filename = $this->getTempFile($filename);
         $fileHandle = fopen($filename, 'w');
-        // @codeCoverageIgnoreStart
-        // Can't find any test case. Uncomment when found.
+        
+        
         if ($fileHandle === false) {
             throw new \Exception("Could not open '{$filename}' for writing.");
         }
-        // @codeCoverageIgnoreEnd
+        
 
         return $fileHandle;
     }
@@ -340,15 +340,15 @@ abstract class AbstractWriter implements WriterInterface
     protected function addFilesToPackage(ZipArchive $zip, $elements)
     {
         foreach ($elements as $element) {
-            $type = $element['type']; // image|object|link
+            $type = $element['type']; 
 
-            // Skip nonregistered types and set target
+            
             if (!isset($this->mediaPaths[$type])) {
                 continue;
             }
             $target = $this->mediaPaths[$type] . $element['target'];
 
-            // Retrive GD image content or get local media
+            
             if (isset($element['isMemImage']) && $element['isMemImage']) {
                 $image = call_user_func($element['createFunction'], $element['source']);
                 ob_start();
@@ -375,7 +375,7 @@ abstract class AbstractWriter implements WriterInterface
      */
     protected function addFileToPackage($zipPackage, $source, $target)
     {
-        $isArchive = strpos($source, 'zip://') !== false;
+        $isArchive = strpos($source, 'zip:
         $actualSource = null;
         if ($isArchive) {
             $source = substr($source, 6);

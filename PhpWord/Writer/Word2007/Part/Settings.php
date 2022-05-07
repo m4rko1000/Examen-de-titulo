@@ -8,11 +8,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Part;
@@ -20,7 +20,7 @@ namespace PhpOffice\PhpWord\Writer\Word2007\Part;
 /**
  * Word2007 settings part writer: word/settings.xml
  *
- * @link http://www.schemacentral.com/sc/ooxml/t-w_CT_Settings.html
+ * @link http:
  */
 class Settings extends AbstractPart
 {
@@ -44,10 +44,10 @@ class Settings extends AbstractPart
 
         $xmlWriter->startDocument('1.0', 'UTF-8', 'yes');
         $xmlWriter->startElement('w:settings');
-        $xmlWriter->writeAttribute('xmlns:r', 'http://schemas.openxmlformats.org/officeDocument/2006/relationships');
-        $xmlWriter->writeAttribute('xmlns:w', 'http://schemas.openxmlformats.org/wordprocessingml/2006/main');
-        $xmlWriter->writeAttribute('xmlns:m', 'http://schemas.openxmlformats.org/officeDocument/2006/math');
-        $xmlWriter->writeAttribute('xmlns:sl', 'http://schemas.openxmlformats.org/schemaLibrary/2006/main');
+        $xmlWriter->writeAttribute('xmlns:r', 'http:
+        $xmlWriter->writeAttribute('xmlns:w', 'http:
+        $xmlWriter->writeAttribute('xmlns:m', 'http:
+        $xmlWriter->writeAttribute('xmlns:sl', 'http:
         $xmlWriter->writeAttribute('xmlns:o', 'urn:schemas-microsoft-com:office:office');
         $xmlWriter->writeAttribute('xmlns:v', 'urn:schemas-microsoft-com:vml');
         $xmlWriter->writeAttribute('xmlns:w10', 'urn:schemas-microsoft-com:office:word');
@@ -56,7 +56,7 @@ class Settings extends AbstractPart
             $this->writeSetting($xmlWriter, $settingKey, $settingValue);
         }
 
-        $xmlWriter->endElement(); // w:settings
+        $xmlWriter->endElement(); 
 
         return $xmlWriter->getData();
     }
@@ -97,7 +97,7 @@ class Settings extends AbstractPart
      */
     private function getSettings()
     {
-        // Default settings
+        
         $this->settings = array(
             'w:zoom' => array('@attributes' => array('w:percent' => '100')),
             'w:defaultTabStop' => array('@attributes' => array('w:val' => '708')),
@@ -138,7 +138,7 @@ class Settings extends AbstractPart
             ),
         );
 
-        // Other settings
+        
         $this->getProtection();
         $this->getCompatibility();
     }
@@ -172,7 +172,7 @@ class Settings extends AbstractPart
         if ($compatibility->getOoxmlVersion() !== null) {
             $this->settings['w:compat']['w:compatSetting'] = array('@attributes' => array(
                 'w:name'    => 'compatibilityMode',
-                'w:uri'     => 'http://schemas.microsoft.com/office/word',
+                'w:uri'     => 'http:
                 'w:val'     => $compatibility->getOoxmlVersion(),
             ));
         }

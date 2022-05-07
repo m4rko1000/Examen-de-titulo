@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\ODText\Part;
@@ -45,7 +46,7 @@ class Manifest extends AbstractPart
         $xmlWriter->writeAttribute('manifest:version', '1.2');
         $xmlWriter->endElement();
 
-        // Parts
+
         foreach ($parts as $part) {
             $xmlWriter->startElement('manifest:file-entry');
             $xmlWriter->writeAttribute('manifest:media-type', 'text/xml');
@@ -53,7 +54,7 @@ class Manifest extends AbstractPart
             $xmlWriter->endElement();
         }
 
-        // Media files
+
         $media = Media::getElements('section');
         foreach ($media as $medium) {
             if ($medium['type'] == 'image') {
@@ -64,7 +65,7 @@ class Manifest extends AbstractPart
             }
         }
 
-        $xmlWriter->endElement(); // manifest:manifest
+        $xmlWriter->endElement();
 
         return $xmlWriter->getData();
     }

@@ -2,8 +2,8 @@
 
 
 
-// Request.php
-// @brief esto es algo mucho mas magico
+
+
 
 class Request {
 	function __get($value){
@@ -22,7 +22,3 @@ class Request {
 		return $found;
 	}
 }
-
-
-
-?>

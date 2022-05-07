@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Style;
@@ -32,8 +33,8 @@ class Frame extends AbstractStyle
      *
      * @const string
      */
-    const UNIT_PT = 'pt'; // Mostly for shapes
-    const UNIT_PX = 'px'; // Mostly for images
+    const UNIT_PT = 'pt';
+    const UNIT_PX = 'px';
 
     /**
      * General positioning options.
@@ -63,14 +64,14 @@ class Frame extends AbstractStyle
      */
     const POS_RELTO_MARGIN = 'margin';
     const POS_RELTO_PAGE = 'page';
-    const POS_RELTO_COLUMN = 'column'; // horizontal only
-    const POS_RELTO_CHAR = 'char'; // horizontal only
-    const POS_RELTO_TEXT = 'text'; // vertical only
-    const POS_RELTO_LINE = 'line'; // vertical only
-    const POS_RELTO_LMARGIN = 'left-margin-area'; // horizontal only
-    const POS_RELTO_RMARGIN = 'right-margin-area'; // horizontal only
-    const POS_RELTO_TMARGIN = 'top-margin-area'; // vertical only
-    const POS_RELTO_BMARGIN = 'bottom-margin-area'; // vertical only
+    const POS_RELTO_COLUMN = 'column';
+    const POS_RELTO_CHAR = 'char';
+    const POS_RELTO_TEXT = 'text';
+    const POS_RELTO_LINE = 'line';
+    const POS_RELTO_LMARGIN = 'left-margin-area';
+    const POS_RELTO_RMARGIN = 'right-margin-area';
+    const POS_RELTO_TMARGIN = 'top-margin-area';
+    const POS_RELTO_BMARGIN = 'bottom-margin-area';
     const POS_RELTO_IMARGIN = 'inner-margin-area';
     const POS_RELTO_OMARGIN = 'outer-margin-area';
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\RTF\Element;
@@ -39,7 +40,7 @@ class Table extends AbstractElement
             return '';
         }
         $element = $this->element;
-        // No nesting table for now
+
         if ($element->getNestedLevel() >= 1) {
             return '';
         }
@@ -78,7 +79,7 @@ class Table extends AbstractElement
             $width = $cell->getWidth();
             $vMerge = $this->getVMerge($cell->getStyle()->getVMerge());
             if ($width === null) {
-                $width = 720; // Arbitrary default width
+                $width = 720;
             }
             $rightMargin += $width;
             $content .= "{$vMerge}\cellx{$rightMargin} ";
@@ -97,7 +98,7 @@ class Table extends AbstractElement
     {
         $content = '';
 
-        // Write cells
+
         foreach ($row->getCells() as $cell) {
             $content .= $this->writeCell($cell);
         }
@@ -115,7 +116,7 @@ class Table extends AbstractElement
     {
         $content = '\intbl' . PHP_EOL;
 
-        // Write content
+
         $writer = new Container($this->parentWriter, $cell);
         $content .= $writer->write();
 

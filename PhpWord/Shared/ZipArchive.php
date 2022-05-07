@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Shared;
@@ -37,8 +38,8 @@ use PhpOffice\PhpWord\Settings;
 class ZipArchive
 {
     /** @const int Flags for open method */
-    const CREATE    = 1; // Emulate \ZipArchive::CREATE
-    const OVERWRITE = 8; // Emulate \ZipArchive::OVERWRITE
+    const CREATE    = 1;
+    const OVERWRITE = 8;
 
     /**
      * Number of files (emulate ZipArchive::$numFiles)
@@ -100,7 +101,7 @@ class ZipArchive
      */
     public function __call($function, $args)
     {
-        // Set object and function
+
         $zipFunction = $function;
         if (!$this->usePclzip) {
             $zipObject = $this->zip;
@@ -109,7 +110,7 @@ class ZipArchive
             $zipFunction = "pclzip{$zipFunction}";
         }
 
-        // Run function
+
         $result = false;
         if (method_exists($zipObject, $zipFunction)) {
             $result = @call_user_func_array(array($zipObject, $zipFunction), $args);
@@ -134,8 +135,8 @@ class ZipArchive
             $zip = new \ZipArchive();
             $result = $zip->open($this->filename, $flags);
 
-            // Scrutizer will report the property numFiles does not exist
-            // See https://github.com/scrutinizer-ci/php-analyzer/issues/190
+
+
             $this->numFiles = $zip->numFiles;
         } else {
             $zip = new \PclZip($this->filename);
@@ -219,7 +220,7 @@ class ZipArchive
         /** @var \PclZip $zip Type hint */
         $zip = $this->zip;
 
-        // Bugfix GH-261 https://github.com/PHPOffice/PHPWord/pull/261
+
         $realpathFilename = realpath($filename);
         if ($realpathFilename !== false) {
             $filename = $realpathFilename;
@@ -228,11 +229,11 @@ class ZipArchive
         $filenameParts = pathinfo($filename);
         $localnameParts = pathinfo($localname);
 
-        // To Rename the file while adding it to the zip we
-        //   need to create a temp file with the correct name
+
+
         $tempFile = false;
         if ($filenameParts['basename'] != $localnameParts['basename']) {
-            $tempFile = true; // temp file created
+            $tempFile = true;
             $temppath = $this->tempDir . DIRECTORY_SEPARATOR . $localnameParts['basename'];
             copy($filename, $temppath);
             $filename = $temppath;
@@ -245,7 +246,7 @@ class ZipArchive
         $res = $zip->add($filename, PCLZIP_OPT_REMOVE_PATH, $pathRemoved, PCLZIP_OPT_ADD_PATH, $pathAdded);
 
         if ($tempFile) {
-            // Remove temp file, if created
+
             unlink($this->tempDir . DIRECTORY_SEPARATOR . $localnameParts['basename']);
         }
 
@@ -265,19 +266,19 @@ class ZipArchive
         $zip = $this->zip;
         $filenameParts = pathinfo($localname);
 
-        // Write $contents to a temp file
+
         $handle = fopen($this->tempDir . DIRECTORY_SEPARATOR . $filenameParts['basename'], 'wb');
         fwrite($handle, $contents);
         fclose($handle);
 
-        // Add temp file to zip
+
         $filename = $this->tempDir . DIRECTORY_SEPARATOR . $filenameParts['basename'];
         $pathRemoved = $this->tempDir;
         $pathAdded = $filenameParts['dirname'];
 
         $res = $zip->add($filename, PCLZIP_OPT_REMOVE_PATH, $pathRemoved, PCLZIP_OPT_ADD_PATH, $pathAdded);
 
-        // Remove temp file
+
         @unlink($this->tempDir . DIRECTORY_SEPARATOR . $filenameParts['basename']);
 
         return ($res == 0) ? false : true;
@@ -296,13 +297,13 @@ class ZipArchive
         /** @var \PclZip $zip Type hint */
         $zip = $this->zip;
 
-        // Extract all files
+
         if (is_null($entries)) {
             $result = $zip->extract(PCLZIP_OPT_PATH, $destination);
             return ($result > 0) ? true : false;
         }
 
-        // Extract by entries
+
         if (!is_array($entries)) {
             $entries = array($entries);
         }
@@ -377,8 +378,10 @@ class ZipArchive
         $listCount = count($list);
         $listIndex = -1;
         for ($i = 0; $i < $listCount; ++$i) {
-            if (strtolower($list[$i]['filename']) == strtolower($filename) ||
-                strtolower($list[$i]['stored_filename']) == strtolower($filename)) {
+            if (
+                strtolower($list[$i]['filename']) == strtolower($filename) ||
+                strtolower($list[$i]['stored_filename']) == strtolower($filename)
+            ) {
                 $listIndex = $i;
                 break;
             }

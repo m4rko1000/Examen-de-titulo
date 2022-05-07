@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\ODText\Style;
@@ -56,8 +57,8 @@ class Paragraph extends AbstractStyle
             $xmlWriter->writeAttribute('fo:margin-bottom', $marginBottom . 'cm');
             $xmlWriter->writeAttribute('fo:text-align', $style->getAlign());
         }
-        $xmlWriter->endElement(); //style:paragraph-properties
+        $xmlWriter->endElement();
 
-        $xmlWriter->endElement(); //style:style
+        $xmlWriter->endElement();
     }
 }

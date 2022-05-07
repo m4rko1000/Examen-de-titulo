@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Element;
@@ -57,7 +58,7 @@ class Object extends AbstractElement
         $xmlWriter->writeAttribute('w:dxaOrig', '249');
         $xmlWriter->writeAttribute('w:dyaOrig', '160');
 
-        // Icon
+
         $xmlWriter->startElement('v:shape');
         $xmlWriter->writeAttribute('id', $shapeId);
         $xmlWriter->writeAttribute('type', '#_x0000_t75');
@@ -67,11 +68,11 @@ class Object extends AbstractElement
         $xmlWriter->startElement('v:imagedata');
         $xmlWriter->writeAttribute('r:id', 'rId' . $rIdImage);
         $xmlWriter->writeAttribute('o:title', '');
-        $xmlWriter->endElement(); // v:imagedata
+        $xmlWriter->endElement();
 
-        $xmlWriter->endElement(); // v:shape
+        $xmlWriter->endElement();
 
-        // Object
+
         $xmlWriter->startElement('o:OLEObject');
         $xmlWriter->writeAttribute('Type', 'Embed');
         $xmlWriter->writeAttribute('ProgID', 'Package');
@@ -79,11 +80,11 @@ class Object extends AbstractElement
         $xmlWriter->writeAttribute('DrawAspect', 'Icon');
         $xmlWriter->writeAttribute('ObjectID', '_' . $objectId);
         $xmlWriter->writeAttribute('r:id', 'rId' . $rIdObject);
-        $xmlWriter->endElement(); // o:OLEObject
+        $xmlWriter->endElement();
 
-        $xmlWriter->endElement(); // w:object
-        $xmlWriter->endElement(); // w:r
+        $xmlWriter->endElement();
+        $xmlWriter->endElement();
 
-        $this->endElementP(); // w:p
+        $this->endElementP();
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Style;
@@ -46,21 +47,21 @@ class Cell extends AbstractStyle
 
         $xmlWriter->startElement('w:tcPr');
 
-        // Width
+
         $xmlWriter->startElement('w:tcW');
         $xmlWriter->writeAttribute('w:w', $this->width);
         $xmlWriter->writeAttribute('w:type', 'dxa');
-        $xmlWriter->endElement(); // w:tcW
+        $xmlWriter->endElement();
 
-        // Text direction
+
         $textDir = $style->getTextDirection();
         $xmlWriter->writeElementIf(!is_null($textDir), 'w:textDirection', 'w:val', $textDir);
 
-        // Vertical alignment
+
         $vAlign = $style->getVAlign();
         $xmlWriter->writeElementIf(!is_null($vAlign), 'w:vAlign', 'w:val', $vAlign);
 
-        // Border
+
         if ($style->hasBorder()) {
             $xmlWriter->startElement('w:tcBorders');
 
@@ -73,20 +74,20 @@ class Cell extends AbstractStyle
             $xmlWriter->endElement();
         }
 
-        // Shading
+
         $shading = $style->getShading();
         if (!is_null($shading)) {
             $styleWriter = new Shading($xmlWriter, $shading);
             $styleWriter->write();
         }
 
-        // Colspan & rowspan
+
         $gridSpan = $style->getGridSpan();
         $vMerge = $style->getVMerge();
         $xmlWriter->writeElementIf(!is_null($gridSpan), 'w:gridSpan', 'w:val', $gridSpan);
         $xmlWriter->writeElementIf(!is_null($vMerge), 'w:vMerge', 'w:val', $vMerge);
 
-        $xmlWriter->endElement(); // w:tcPr
+        $xmlWriter->endElement();
     }
 
     /**

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Reader\ODText;
@@ -42,7 +43,7 @@ class Meta extends AbstractPart
 
         $metaNode = $xmlReader->getElement('office:meta');
 
-        // Standard properties
+
         $properties = array(
             'title'          => 'dc:title',
             'subject'        => 'dc:subject',
@@ -50,8 +51,8 @@ class Meta extends AbstractPart
             'keywords'       => 'meta:keyword',
             'creator'        => 'meta:initial-creator',
             'lastModifiedBy' => 'dc:creator',
-            // 'created'        => 'meta:creation-date',
-            // 'modified'       => 'dc:date',
+
+
         );
         foreach ($properties as $property => $path) {
             $method = "set{$property}";
@@ -61,17 +62,15 @@ class Meta extends AbstractPart
             }
         }
 
-        // Custom properties
+
         $propertyNodes = $xmlReader->getElements('meta:user-defined', $metaNode);
         foreach ($propertyNodes as $propertyNode) {
             $property = $xmlReader->getAttribute('meta:name', $propertyNode);
 
-            // Set category, company, and manager property
+
             if (in_array($property, array('Category', 'Company', 'Manager'))) {
                 $method = "set{$property}";
                 $docProps->$method($propertyNode->nodeValue);
-
-            // Set other custom properties
             } else {
                 $docProps->setCustomProperty($property, $propertyNode->nodeValue);
             }

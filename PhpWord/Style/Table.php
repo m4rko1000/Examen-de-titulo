@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Style;
@@ -23,11 +24,11 @@ namespace PhpOffice\PhpWord\Style;
 class Table extends Border
 {
     /**
-     * @const string Table width units http://www.schemacentral.com/sc/ooxml/t-w_ST_TblWidth.html
+     * @const string Table width units http:
      */
-    const WIDTH_AUTO = 'auto'; // Automatically determined width
-    const WIDTH_PERCENT = 'pct'; // Width in fiftieths (1/50) of a percent (1% = 50 unit)
-    const WIDTH_TWIP = 'dxa'; // Width in twentieths (1/20) of a point (twip)
+    const WIDTH_AUTO = 'auto';
+    const WIDTH_PERCENT = 'pct';
+    const WIDTH_TWIP = 'dxa';
 
     /**
      * Is this a first row style?
@@ -131,7 +132,7 @@ class Table extends Border
     {
         $this->alignment = new Alignment();
 
-        // Clone first row from table style, but with certain properties disabled
+
         if ($firstRowStyle !== null && is_array($firstRowStyle)) {
             $this->firstRowStyle = clone $this;
             $this->firstRowStyle->isFirstRow = true;

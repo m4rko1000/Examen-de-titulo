@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Metadata;
@@ -491,19 +492,19 @@ class DocInfo
         $conversion = self::getConversion($propertyType);
 
         switch ($conversion) {
-            case 'empty': // Empty
+            case 'empty':
                 return '';
-            case 'null': // Null
+            case 'null':
                 return null;
-            case 'int': // Signed integer
+            case 'int':
                 return (int) $propertyValue;
-            case 'uint': // Unsigned integer
+            case 'uint':
                 return abs((int) $propertyValue);
-            case 'float': // Float
+            case 'float':
                 return (float) $propertyValue;
-            case 'date': // Date
+            case 'date':
                 return strtotime($propertyValue);
-            case 'bool': // Boolean
+            case 'bool':
                 return ($propertyValue == 'true') ? true : false;
         }
 

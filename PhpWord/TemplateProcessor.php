@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord;
@@ -67,18 +68,18 @@ class TemplateProcessor
      */
     public function __construct($documentTemplate)
     {
-        // Temporary document filename initialization
+
         $this->temporaryDocumentFilename = tempnam(Settings::getTempDir(), 'PhpWord');
         if (false === $this->temporaryDocumentFilename) {
             throw new CreateTemporaryFileException();
         }
 
-        // Template file cloning
+
         if (false === copy($documentTemplate, $this->temporaryDocumentFilename)) {
             throw new CopyFileException($documentTemplate, $this->temporaryDocumentFilename);
         }
 
-        // Temporary document content extraction
+
         $this->zipClass = new ZipArchive();
         $this->zipClass->open($this->temporaryDocumentFilename);
         $index = 1;
@@ -188,26 +189,28 @@ class TemplateProcessor
         $rowEnd = $this->findRowEnd($tagPos);
         $xmlRow = $this->getSlice($rowStart, $rowEnd);
 
-        // Check if there's a cell spanning multiple rows.
+
         if (preg_match('#<w:vMerge w:val="restart"/>#', $xmlRow)) {
-            // $extraRowStart = $rowEnd;
+
             $extraRowEnd = $rowEnd;
             while (true) {
                 $extraRowStart = $this->findRowStart($extraRowEnd + 1);
                 $extraRowEnd = $this->findRowEnd($extraRowEnd + 1);
 
-                // If extraRowEnd is lower then 7, there was no next row found.
+
                 if ($extraRowEnd < 7) {
                     break;
                 }
 
-                // If tmpXmlRow doesn't contain continue, this row is no longer part of the spanned row.
+
                 $tmpXmlRow = $this->getSlice($extraRowStart, $extraRowEnd);
-                if (!preg_match('#<w:vMerge/>#', $tmpXmlRow) &&
-                    !preg_match('#<w:vMerge w:val="continue" />#', $tmpXmlRow)) {
+                if (
+                    !preg_match('#<w:vMerge/>#', $tmpXmlRow) &&
+                    !preg_match('#<w:vMerge w:val="continue" />#', $tmpXmlRow)
+                ) {
                     break;
                 }
-                // This row was a spanned row, update $rowEnd and search for the next row.
+
                 $rowEnd = $extraRowEnd;
             }
             $xmlRow = $this->getSlice($rowStart, $rowEnd);
@@ -311,7 +314,7 @@ class TemplateProcessor
             $this->zipClass->addFromString($this->getFooterName($index), $this->temporaryDocumentFooters[$index]);
         }
 
-        // Close zip file
+
         if (false === $this->zipClass->close()) {
             throw new Exception('Could not close zip file.');
         }

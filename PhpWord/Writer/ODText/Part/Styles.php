@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\ODText\Part;
@@ -35,27 +36,27 @@ class Styles extends AbstractPart
     {
         $xmlWriter = $this->getXmlWriter();
 
-        // XML header
+
         $xmlWriter->startDocument('1.0', 'UTF-8');
         $xmlWriter->startElement('office:document-styles');
         $this->writeCommonRootAttributes($xmlWriter);
 
-        // Font declarations
+
         $this->writeFontFaces($xmlWriter);
 
-        // Office styles
+
         $xmlWriter->startElement('office:styles');
         $this->writeDefault($xmlWriter);
         $this->writeNamed($xmlWriter);
         $xmlWriter->endElement();
 
-        // Automatic styles
+
         $xmlWriter->startElement('office:automatic-styles');
         $this->writePageLayout($xmlWriter);
         $this->writeMaster($xmlWriter);
         $xmlWriter->endElement();
 
-        $xmlWriter->endElement(); // office:document-styles
+        $xmlWriter->endElement();
 
         return $xmlWriter->getData();
     }
@@ -71,7 +72,7 @@ class Styles extends AbstractPart
         $xmlWriter->startElement('style:default-style');
         $xmlWriter->writeAttribute('style:family', 'paragraph');
 
-        // Paragraph
+
         $xmlWriter->startElement('style:paragraph-properties');
         $xmlWriter->writeAttribute('fo:hyphenation-ladder-count', 'no-limit');
         $xmlWriter->writeAttribute('style:text-autospace', 'ideograph-alpha');
@@ -79,9 +80,9 @@ class Styles extends AbstractPart
         $xmlWriter->writeAttribute('style:line-break', 'strict');
         $xmlWriter->writeAttribute('style:tab-stop-distance', '1.249cm');
         $xmlWriter->writeAttribute('style:writing-mode', 'page');
-        $xmlWriter->endElement(); // style:paragraph-properties
+        $xmlWriter->endElement();
 
-        // Font
+
         $xmlWriter->startElement('style:text-properties');
         $xmlWriter->writeAttribute('style:use-window-font-color', 'true');
         $xmlWriter->writeAttribute('style:font-name', Settings::getDefaultFontName());
@@ -100,9 +101,9 @@ class Styles extends AbstractPart
         $xmlWriter->writeAttribute('fo:hyphenate', 'false');
         $xmlWriter->writeAttribute('fo:hyphenation-remain-char-count', '2');
         $xmlWriter->writeAttribute('fo:hyphenation-push-char-count', '2');
-        $xmlWriter->endElement(); // style:text-properties
+        $xmlWriter->endElement();
 
-        $xmlWriter->endElement(); // style:default-style
+        $xmlWriter->endElement();
     }
 
     /**
@@ -166,18 +167,18 @@ class Styles extends AbstractPart
         $xmlWriter->writeAttribute('style:adjustment', 'left');
         $xmlWriter->writeAttribute('style:rel-width', '25%');
         $xmlWriter->writeAttribute('style:color', '#000000');
-        $xmlWriter->endElement(); //style:footnote-sep
+        $xmlWriter->endElement();
 
-        $xmlWriter->endElement(); // style:page-layout-properties
+        $xmlWriter->endElement();
 
 
         $xmlWriter->startElement('style:header-style');
-        $xmlWriter->endElement(); // style:header-style
+        $xmlWriter->endElement();
 
         $xmlWriter->startElement('style:footer-style');
-        $xmlWriter->endElement(); // style:footer-style
+        $xmlWriter->endElement();
 
-        $xmlWriter->endElement(); // style:page-layout
+        $xmlWriter->endElement();
     }
 
     /**
@@ -193,8 +194,8 @@ class Styles extends AbstractPart
         $xmlWriter->startElement('style:master-page');
         $xmlWriter->writeAttribute('style:name', 'Standard');
         $xmlWriter->writeAttribute('style:page-layout-name', 'Mpm1');
-        $xmlWriter->endElement(); // style:master-page
+        $xmlWriter->endElement();
 
-        $xmlWriter->endElement(); // office:master-styles
+        $xmlWriter->endElement();
     }
 }

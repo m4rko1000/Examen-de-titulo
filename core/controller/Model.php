@@ -2,8 +2,8 @@
 
 
 
-// Model.php
-// @brief agrego la clase Model para reducir las lineas de los modelos
+
+
 
 class Model {
 
@@ -37,7 +37,7 @@ class Model {
 		}
 		return $array;
 	}
-	//////////////////////////////////
+	
 	public static function one($query,$aclass){
 		$cnt = 0;
 		$found = null;
@@ -58,7 +58,3 @@ class Model {
 	}
 
 }
-
-
-
-?>

@@ -8,11 +8,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Part;
@@ -46,21 +46,21 @@ class Styles extends AbstractPart
 
         $xmlWriter->startDocument('1.0', 'UTF-8', 'yes');
         $xmlWriter->startElement('w:styles');
-        $xmlWriter->writeAttribute('xmlns:r', 'http://schemas.openxmlformats.org/officeDocument/2006/relationships');
-        $xmlWriter->writeAttribute('xmlns:w', 'http://schemas.openxmlformats.org/wordprocessingml/2006/main');
+        $xmlWriter->writeAttribute('xmlns:r', 'http:
+        $xmlWriter->writeAttribute('xmlns:w', 'http:
 
-        // Write default styles
+        
         $styles = Style::getStyles();
         $this->writeDefaultStyles($xmlWriter, $styles);
 
-        // Write styles
+        
         if (count($styles) > 0) {
             foreach ($styles as $styleName => $style) {
                 if ($styleName == 'Normal') {
                     continue;
                 }
 
-                // Get style class and execute if the private method exists
+                
                 $styleClass = substr(get_class($style), strrpos(get_class($style), '\\') + 1);
                 $method = "write{$styleClass}Style";
                 if (method_exists($this, $method)) {
@@ -69,7 +69,7 @@ class Styles extends AbstractPart
             }
         }
 
-        $xmlWriter->endElement(); // w:styles
+        $xmlWriter->endElement(); 
 
         return $xmlWriter->getData();
     }
@@ -86,7 +86,7 @@ class Styles extends AbstractPart
         $fontName = PhpWordSettings::getDefaultFontName();
         $fontSize = PhpWordSettings::getDefaultFontSize();
 
-        // Default font
+        
         $xmlWriter->startElement('w:docDefaults');
         $xmlWriter->startElement('w:rPrDefault');
         $xmlWriter->startElement('w:rPr');
@@ -95,47 +95,47 @@ class Styles extends AbstractPart
         $xmlWriter->writeAttribute('w:hAnsi', $fontName);
         $xmlWriter->writeAttribute('w:eastAsia', $fontName);
         $xmlWriter->writeAttribute('w:cs', $fontName);
-        $xmlWriter->endElement(); // w:rFonts
+        $xmlWriter->endElement(); 
         $xmlWriter->startElement('w:sz');
         $xmlWriter->writeAttribute('w:val', $fontSize * 2);
-        $xmlWriter->endElement(); // w:sz
+        $xmlWriter->endElement(); 
         $xmlWriter->startElement('w:szCs');
         $xmlWriter->writeAttribute('w:val', $fontSize * 2);
-        $xmlWriter->endElement(); // w:szCs
-        $xmlWriter->endElement(); // w:rPr
-        $xmlWriter->endElement(); // w:rPrDefault
-        $xmlWriter->endElement(); // w:docDefaults
+        $xmlWriter->endElement(); 
+        $xmlWriter->endElement(); 
+        $xmlWriter->endElement(); 
+        $xmlWriter->endElement(); 
 
-        // Normal style
+        
         $xmlWriter->startElement('w:style');
         $xmlWriter->writeAttribute('w:type', 'paragraph');
         $xmlWriter->writeAttribute('w:default', '1');
         $xmlWriter->writeAttribute('w:styleId', 'Normal');
         $xmlWriter->startElement('w:name');
         $xmlWriter->writeAttribute('w:val', 'Normal');
-        $xmlWriter->endElement(); // w:name
+        $xmlWriter->endElement(); 
         if (isset($styles['Normal'])) {
             $styleWriter = new ParagraphStyleWriter($xmlWriter, $styles['Normal']);
             $styleWriter->write();
         }
-        $xmlWriter->endElement(); // w:style
+        $xmlWriter->endElement(); 
 
-        // FootnoteReference style
+        
         if (!isset($styles['FootnoteReference'])) {
             $xmlWriter->startElement('w:style');
             $xmlWriter->writeAttribute('w:type', 'character');
             $xmlWriter->writeAttribute('w:styleId', 'FootnoteReference');
             $xmlWriter->startElement('w:name');
             $xmlWriter->writeAttribute('w:val', 'Footnote Reference');
-            $xmlWriter->endElement(); // w:name
+            $xmlWriter->endElement(); 
             $xmlWriter->writeElement('w:semiHidden');
             $xmlWriter->writeElement('w:unhideWhenUsed');
             $xmlWriter->startElement('w:rPr');
             $xmlWriter->startElement('w:vertAlign');
             $xmlWriter->writeAttribute('w:val', 'superscript');
-            $xmlWriter->endElement(); // w:vertAlign
-            $xmlWriter->endElement(); // w:rPr
-            $xmlWriter->endElement(); // w:style
+            $xmlWriter->endElement(); 
+            $xmlWriter->endElement(); 
+            $xmlWriter->endElement(); 
         }
     }
 
@@ -159,7 +159,7 @@ class Styles extends AbstractPart
         $xmlWriter->startElement('w:style');
         $xmlWriter->writeAttribute('w:type', $type);
 
-        // Heading style
+        
         if ($styleType == 'title') {
             $arrStyle = explode('_', $styleName);
             $styleId = 'Heading' . $arrStyle[1];
@@ -172,21 +172,21 @@ class Styles extends AbstractPart
             $xmlWriter->endElement();
         }
 
-        // Style name
+        
         $xmlWriter->startElement('w:name');
         $xmlWriter->writeAttribute('w:val', $styleName);
         $xmlWriter->endElement();
 
-        // Parent style
+        
         $xmlWriter->writeElementIf(!is_null($paragraphStyle), 'w:basedOn', 'w:val', 'Normal');
 
-        // w:pPr
+        
         if (!is_null($paragraphStyle)) {
             $styleWriter = new ParagraphStyleWriter($xmlWriter, $paragraphStyle);
             $styleWriter->write();
         }
 
-        // w:rPr
+        
         $styleWriter = new FontStyleWriter($xmlWriter, $style);
         $styleWriter->write();
 
@@ -211,15 +211,15 @@ class Styles extends AbstractPart
         $xmlWriter->writeAttribute('w:val', $styleName);
         $xmlWriter->endElement();
 
-        // Parent style
+        
         $basedOn = $style->getBasedOn();
         $xmlWriter->writeElementIf(!is_null($basedOn), 'w:basedOn', 'w:val', $basedOn);
 
-        // Next paragraph style
+        
         $next = $style->getNext();
         $xmlWriter->writeElementIf(!is_null($next), 'w:next', 'w:val', $next);
 
-        // w:pPr
+        
         $styleWriter = new ParagraphStyleWriter($xmlWriter, $style);
         $styleWriter->write();
 
@@ -250,6 +250,6 @@ class Styles extends AbstractPart
         $styleWriter = new TableStyleWriter($xmlWriter, $style);
         $styleWriter->write();
 
-        $xmlWriter->endElement(); // w:style
+        $xmlWriter->endElement(); 
     }
 }

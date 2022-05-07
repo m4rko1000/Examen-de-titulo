@@ -8,11 +8,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Element;
@@ -32,9 +32,9 @@ class Image extends AbstractElement
     /**
      * Image source type constants
      */
-    const SOURCE_LOCAL = 'local'; // Local images
-    const SOURCE_GD = 'gd'; // Generated using GD
-    const SOURCE_ARCHIVE = 'archive'; // Image in archives zip://$archive#$image
+    const SOURCE_LOCAL = 'local'; 
+    const SOURCE_GD = 'gd'; 
+    const SOURCE_ARCHIVE = 'archive'; 
 
     /**
      * Image source
@@ -305,8 +305,8 @@ class Image extends AbstractElement
         $imageData = null;
         $isTemp = false;
 
-        // Get actual source from archive image or other source
-        // Return null if not found
+        
+        
         if ($this->sourceType == self::SOURCE_ARCHIVE) {
             $source = substr($source, 6);
             list($zipFilename, $imageFilename) = explode('#', $source);
@@ -324,14 +324,14 @@ class Image extends AbstractElement
             $actualSource = $source;
         }
 
-        // Can't find any case where $actualSource = null hasn't captured by
-        // preceding exceptions. Please uncomment when you find the case and
-        // put the case into Element\ImageTest.
-        // if ($actualSource === null) {
-        //     return null;
-        // }
+        
+        
+        
+        
+        
+        
 
-        // Read image binary data and convert to hex/base64 string
+        
         if ($this->sourceType == self::SOURCE_GD) {
             $imageResource = call_user_func($this->imageCreateFunc, $actualSource);
             ob_start();
@@ -353,7 +353,7 @@ class Image extends AbstractElement
             }
         }
 
-        // Delete temporary file if necessary
+        
         if ($isTemp === true) {
             @unlink($actualSource);
         }
@@ -373,7 +373,7 @@ class Image extends AbstractElement
     {
         $this->setSourceType($source);
 
-        // Check image data
+        
         if ($this->sourceType == self::SOURCE_ARCHIVE) {
             $imageData = $this->getArchiveImageSize($source);
         } else {
@@ -384,7 +384,7 @@ class Image extends AbstractElement
         }
         list($actualWidth, $actualHeight, $imageType) = $imageData;
 
-        // Check image type support
+        
         $supportedTypes = array(IMAGETYPE_JPEG, IMAGETYPE_GIF, IMAGETYPE_PNG);
         if ($this->sourceType != self::SOURCE_GD) {
             $supportedTypes = array_merge($supportedTypes, array(IMAGETYPE_BMP, IMAGETYPE_TIFF_II, IMAGETYPE_TIFF_MM));
@@ -393,7 +393,7 @@ class Image extends AbstractElement
             throw new UnsupportedImageTypeException();
         }
 
-        // Define image functions
+        
         $this->imageType = image_type_to_mime_type($imageType);
         $this->setFunctions();
         $this->setProportionalSize($actualWidth, $actualHeight);
@@ -410,7 +410,7 @@ class Image extends AbstractElement
         if (stripos(strrev($source), strrev('.php')) === 0) {
             $this->memoryImage = true;
             $this->sourceType = self::SOURCE_GD;
-        } elseif (strpos($source, 'zip://') !== false) {
+        } elseif (strpos($source, 'zip:
             $this->memoryImage = false;
             $this->sourceType = self::SOURCE_ARCHIVE;
         } else {

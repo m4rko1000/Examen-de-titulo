@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Shared;
@@ -58,26 +59,25 @@ class XMLWriter
      */
     public function __construct($tempLocation = self::STORAGE_MEMORY, $tempFolder = './')
     {
-        // Create internal XMLWriter
+
         $this->xmlWriter = new \XMLWriter();
 
-        // Open temporary storage
+
         if ($tempLocation == self::STORAGE_MEMORY) {
             $this->xmlWriter->openMemory();
         } else {
-            // Create temporary filename
+
             $this->tempFile = tempnam($tempFolder, 'xml');
 
-            // Fallback to memory when temporary file cannot be used
-            // @codeCoverageIgnoreStart
-            // Can't find any test case. Uncomment when found.
+
+
+
             if (false === $this->tempFile || false === $this->xmlWriter->openUri($this->tempFile)) {
                 $this->xmlWriter->openMemory();
             }
-            // @codeCoverageIgnoreEnd
         }
 
-        // Set xml Compatibility
+
         $compatibility = Settings::hasCompatibility();
         if ($compatibility) {
             $this->xmlWriter->setIndent(false);
@@ -93,10 +93,10 @@ class XMLWriter
      */
     public function __destruct()
     {
-        // Destruct XMLWriter
+
         unset($this->xmlWriter);
 
-        // Unlink temporary files
+
         if ($this->tempFile != '') {
             @unlink($this->tempFile);
         }
@@ -111,16 +111,15 @@ class XMLWriter
      */
     public function __call($function, $args)
     {
-        // Catch exception
+
         if (method_exists($this->xmlWriter, $function) === false) {
             throw new \BadMethodCallException("Method '{$function}' does not exists.");
         }
 
-        // Run method
+
         try {
             @call_user_func_array(array($this->xmlWriter, $function), $args);
         } catch (\Exception $ex) {
-            // Do nothing!
         }
     }
 

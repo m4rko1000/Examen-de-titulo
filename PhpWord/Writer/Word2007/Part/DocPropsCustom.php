@@ -8,11 +8,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Part;
@@ -36,8 +36,8 @@ class DocPropsCustom extends AbstractPart
 
         $xmlWriter->startDocument('1.0', 'UTF-8', 'yes');
         $xmlWriter->startElement('Properties');
-        $xmlWriter->writeAttribute('xmlns', 'http://schemas.openxmlformats.org/officeDocument/2006/custom-properties');
-        $xmlWriter->writeAttribute('xmlns:vt', 'http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes');
+        $xmlWriter->writeAttribute('xmlns', 'http:
+        $xmlWriter->writeAttribute('xmlns:vt', 'http:
 
         $docProps = $phpWord->getDocInfo();
         $properties = $docProps->getCustomProperties();
@@ -68,10 +68,10 @@ class DocPropsCustom extends AbstractPart
                     $xmlWriter->writeElement('vt:lpwstr', $propertyValue);
                     break;
             }
-            $xmlWriter->endElement(); // property
+            $xmlWriter->endElement(); 
         }
 
-        $xmlWriter->endElement(); // Properties
+        $xmlWriter->endElement(); 
 
         return $xmlWriter->getData();
     }

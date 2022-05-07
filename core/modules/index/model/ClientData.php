@@ -21,7 +21,7 @@ class ClientData {
 		Executor::doit($sql);
 	}
 
-// partiendo de que ya tenemos creado un objecto ClientData previamente utilizamos el contexto
+
 	public function update_active(){
 		$sql = "update ".self::$tablename." set last_active_at=NOW() where id=$this->id";
 		Executor::doit($sql);
@@ -70,5 +70,3 @@ class ClientData {
 
 
 }
-
-?>

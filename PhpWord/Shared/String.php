@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Shared;
@@ -105,7 +106,7 @@ class String
      * @param string $text UTF8 text
      * @return array
      * @since 0.11.0
-     * @link http://www.randomchaos.com/documents/?source=php_and_unicode
+     * @link http:
      */
     private static function utf8ToUnicode($text)
     {
@@ -113,7 +114,7 @@ class String
         $values = array();
         $lookingFor = 1;
 
-        // Gets unicode for each character
+
         for ($i = 0; $i < strlen($text); $i++) {
             $thisValue = ord($text[$i]);
             if ($thisValue < 128) {
@@ -145,7 +146,7 @@ class String
      * @param array $unicode
      * @return string
      * @since 0.11.0
-     * @link http://www.randomchaos.com/documents/?source=php_and_unicode
+     * @link http:
      */
     private static function unicodeToEntities($unicode)
     {

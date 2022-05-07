@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Style;
@@ -62,14 +63,14 @@ class Frame extends AbstractStyle
 
         $styles = array_merge($sizeStyles, $posStyles);
 
-       // zIndex for infront & behind wrap
+
         $wrap = $style->getWrap();
         if ($wrap !== null && isset($zIndices[$wrap])) {
             $styles['z-index'] = $zIndices[$wrap];
             $wrap = null;
         }
 
-        // Style attribute
+
         $xmlWriter->writeAttribute('style', $this->assembleStyle($styles));
 
         $this->writeWrap($xmlWriter, $style, $wrap);
@@ -91,7 +92,7 @@ class Frame extends AbstractStyle
         $xmlWriter->startElement('w:pPr');
         $styleWriter = new Alignment($xmlWriter, new AlignmentStyle(array('value' => $style->getAlign())));
         $styleWriter->write();
-        $xmlWriter->endElement(); // w:pPr
+        $xmlWriter->endElement();
     }
 
     /**
@@ -132,7 +133,7 @@ class Frame extends AbstractStyle
                 }
             }
 
-            $xmlWriter->endElement(); // w10:wrap
+            $xmlWriter->endElement();
         }
     }
 

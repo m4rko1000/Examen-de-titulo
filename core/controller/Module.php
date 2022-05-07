@@ -2,8 +2,8 @@
 
 
 
-// Module.php
-// @brief tareas que se realizan con modulos.
+
+
 
 class Module {
 	public static $module;
@@ -18,7 +18,7 @@ class Module {
 		include "core/modules/".Module::$module."/view/layout.php";
 	}
 
-	// validacion del modulo
+	
 	public static function isValid(){
 		$valid = false;
 		$folder = "core/modules/".Module::$module;
@@ -38,7 +38,3 @@ class Module {
 	}
 
 }
-
-
-
-?>

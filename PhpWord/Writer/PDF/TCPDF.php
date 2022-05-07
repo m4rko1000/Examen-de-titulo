@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PhpWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\PDF;
@@ -22,7 +23,7 @@ use PhpOffice\PhpWord\Writer\WriterInterface;
 /**
  * TCPDF writer
  *
- * @link http://www.tcpdf.org/
+ * @link http:
  * @since 0.11.0
  */
 class TCPDF extends AbstractRenderer implements WriterInterface
@@ -44,11 +45,11 @@ class TCPDF extends AbstractRenderer implements WriterInterface
     {
         $fileHandle = parent::prepareForSave($filename);
 
-        //  PDF settings
+
         $paperSize = 'A4';
         $orientation = 'P';
 
-        // Create PDF
+
         $pdf = new \TCPDF($orientation, 'pt', $paperSize);
         $pdf->setFontSubsetting(false);
         $pdf->setPrintHeader(false);
@@ -57,7 +58,7 @@ class TCPDF extends AbstractRenderer implements WriterInterface
         $pdf->setFont($this->getFont());
         $pdf->writeHTML($this->getContent());
 
-        // Write document properties
+
         $phpWord = $this->getPhpWord();
         $docProps = $phpWord->getDocInfo();
         $pdf->setTitle($docProps->getTitle());
@@ -66,7 +67,7 @@ class TCPDF extends AbstractRenderer implements WriterInterface
         $pdf->setKeywords($docProps->getKeywords());
         $pdf->setCreator($docProps->getCreator());
 
-        //  Write to file
+
         fwrite($fileHandle, $pdf->output($filename, 'S'));
 
         parent::restoreStateAfterSave($fileHandle);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Style;
@@ -39,18 +40,18 @@ class Section extends AbstractStyle
         }
         $xmlWriter = $this->getXmlWriter();
 
-        // Break type
+
         $breakType = $style->getBreakType();
         $xmlWriter->writeElementIf(!is_null($breakType), 'w:type', 'w:val', $breakType);
 
-        // Page size & orientation
+
         $xmlWriter->startElement('w:pgSz');
         $xmlWriter->writeAttribute('w:orient', $style->getOrientation());
         $xmlWriter->writeAttribute('w:w', $style->getPageSizeW());
         $xmlWriter->writeAttribute('w:h', $style->getPageSizeH());
-        $xmlWriter->endElement(); // w:pgSz
+        $xmlWriter->endElement();
 
-        // Margins
+
         $margins = array(
             'w:top'    => array('getMarginTop', SectionStyle::DEFAULT_MARGIN),
             'w:right'  => array('getMarginRight', SectionStyle::DEFAULT_MARGIN),
@@ -67,7 +68,7 @@ class Section extends AbstractStyle
         }
         $xmlWriter->endElement();
 
-        // Borders
+
         if ($style->hasBorder()) {
             $xmlWriter->startElement('w:pgBorders');
             $xmlWriter->writeAttribute('w:offsetFrom', 'page');
@@ -81,18 +82,18 @@ class Section extends AbstractStyle
             $xmlWriter->endElement();
         }
 
-        // Columns
+
         $colsSpace = $style->getColsSpace();
         $xmlWriter->startElement('w:cols');
         $xmlWriter->writeAttribute('w:num', $style->getColsNum());
         $xmlWriter->writeAttribute('w:space', $this->convertTwip($colsSpace, SectionStyle::DEFAULT_COLUMN_SPACING));
         $xmlWriter->endElement();
 
-        // Page numbering start
+
         $pageNum = $style->getPageNumberingStart();
         $xmlWriter->writeElementIf(!is_null($pageNum), 'w:pgNumType', 'w:start', $pageNum);
 
-        // Line numbering
+
         $styleWriter = new LineNumbering($xmlWriter, $style->getLineNumbering());
         $styleWriter->write();
     }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Shared;
@@ -43,8 +44,8 @@ class Html
          * which could be applied when such an element occurs in the parseNode function.
          */
 
-        // Preprocess: remove all line ends, decode HTML entity,
-        // fix ampersand and angle brackets and add body tag for HTML fragments
+
+
         $html = str_replace(array("\n", "\r"), '', $html);
         $html = str_replace(array('&lt;', '&gt;', '&amp;'), array('_lt_', '_gt_', '_amp_'), $html);
         $html = html_entity_decode($html, ENT_QUOTES, 'UTF-8');
@@ -55,7 +56,7 @@ class Html
             $html = '<body>' . $html . '</body>';
         }
 
-        // Load DOM
+
         $dom = new \DOMDocument();
         $dom->preserveWhiteSpace = true;
         $dom->loadXML($html);
@@ -74,7 +75,7 @@ class Html
     protected static function parseInlineStyle($node, $styles = array())
     {
         if ($node->nodeType == XML_ELEMENT_NODE) {
-            $attributes = $node->attributes; // get all the attributes(eg: id, class)
+            $attributes = $node->attributes;
 
             foreach ($attributes as $attribute) {
                 switch ($attribute->name) {
@@ -99,7 +100,7 @@ class Html
      */
     protected static function parseNode($node, $element, $styles = array(), $data = array())
     {
-        // Populate styles array
+
         $styleTypes = array('font', 'paragraph', 'list');
         foreach ($styleTypes as $styleType) {
             if (!isset($styles[$styleType])) {
@@ -107,9 +108,9 @@ class Html
             }
         }
 
-        // Node mapping table
+
         $nodes = array(
-                              // $method        $node   $element    $styles     $data   $argument1      $argument2
+
             'p'         => array('Paragraph',   $node,  $element,   $styles,    null,   null,           null),
             'h1'        => array('Heading',     null,   $element,   $styles,    null,   'Heading1',     null),
             'h2'        => array('Heading',     null,   $element,   $styles,    null,   'Heading2',     null),
@@ -134,8 +135,8 @@ class Html
         $keys = array('node', 'element', 'styles', 'data', 'argument1', 'argument2');
 
         if (isset($nodes[$node->nodeName])) {
-            // Execute method based on node mapping table and return $newElement or null
-            // Arguments are passed by reference
+
+
             $arguments = array();
             $args = array();
             list($method, $args[0], $args[1], $args[2], $args[3], $args[4], $args[5]) = $nodes[$node->nodeName];
@@ -147,7 +148,7 @@ class Html
             $method = "parse{$method}";
             $newElement = call_user_func_array(array('PhpOffice\PhpWord\Shared\Html', $method), $arguments);
 
-            // Retrieve back variables from arguments
+
             foreach ($keys as $key) {
                 if (array_key_exists($key, $arguments)) {
                     $$key = $arguments[$key];
@@ -232,11 +233,11 @@ class Html
     {
         $styles['font'] = self::parseInlineStyle($node, $styles['font']);
 
-        // Commented as source of bug #257. `method_exists` doesn't seems to work properly in this case.
-        // @todo Find better error checking for this one
-        // if (method_exists($element, 'addText')) {
-            $element->addText($node->nodeValue, $styles['font'], $styles['paragraph']);
-        // }
+
+
+
+        $element->addText($node->nodeValue, $styles['font'], $styles['paragraph']);
+
 
         return null;
     }
@@ -273,17 +274,17 @@ class Html
 
         $newElement = $element->$argument1();
 
-        // $attributes = $node->attributes;
-        // if ($attributes->getNamedItem('width') !== null) {
-            // $newElement->setWidth($attributes->getNamedItem('width')->value);
-        // }
 
-        // if ($attributes->getNamedItem('height') !== null) {
-            // $newElement->setHeight($attributes->getNamedItem('height')->value);
-        // }
-        // if ($attributes->getNamedItem('width') !== null) {
-            // $newElement=$element->addCell($width=$attributes->getNamedItem('width')->value);
-        // }
+
+
+
+
+
+
+
+
+
+
 
         return $newElement;
     }

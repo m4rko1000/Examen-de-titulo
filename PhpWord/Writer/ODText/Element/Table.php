@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\ODText\Element;
@@ -45,7 +46,7 @@ class Table extends AbstractElement
 
             $xmlWriter->startElement('table:table-column');
             $xmlWriter->writeAttribute('table:number-columns-repeated', $colCount);
-            $xmlWriter->endElement(); // table:table-column
+            $xmlWriter->endElement();
 
             foreach ($rows as $row) {
                 $xmlWriter->startElement('table:table-row');
@@ -57,11 +58,11 @@ class Table extends AbstractElement
                     $containerWriter = new Container($xmlWriter, $cell);
                     $containerWriter->write();
 
-                    $xmlWriter->endElement(); // table:table-cell
+                    $xmlWriter->endElement();
                 }
-                $xmlWriter->endElement(); // table:table-row
+                $xmlWriter->endElement();
             }
-            $xmlWriter->endElement(); // table:table
+            $xmlWriter->endElement();
         }
     }
 }

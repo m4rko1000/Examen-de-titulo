@@ -8,11 +8,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Part;
@@ -38,21 +38,21 @@ class Numbering extends AbstractPart
     {
         $xmlWriter = $this->getXmlWriter();
         $styles = Style::getStyles();
-        $drawingSchema = 'http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing';
+        $drawingSchema = 'http:
 
         $xmlWriter->startDocument('1.0', 'UTF-8', 'yes');
         $xmlWriter->startElement('w:numbering');
-        $xmlWriter->writeAttribute('xmlns:ve', 'http://schemas.openxmlformats.org/markup-compatibility/2006');
+        $xmlWriter->writeAttribute('xmlns:ve', 'http:
         $xmlWriter->writeAttribute('xmlns:o', 'urn:schemas-microsoft-com:office:office');
-        $xmlWriter->writeAttribute('xmlns:r', 'http://schemas.openxmlformats.org/officeDocument/2006/relationships');
-        $xmlWriter->writeAttribute('xmlns:m', 'http://schemas.openxmlformats.org/officeDocument/2006/math');
+        $xmlWriter->writeAttribute('xmlns:r', 'http:
+        $xmlWriter->writeAttribute('xmlns:m', 'http:
         $xmlWriter->writeAttribute('xmlns:v', 'urn:schemas-microsoft-com:vml');
         $xmlWriter->writeAttribute('xmlns:wp', $drawingSchema);
         $xmlWriter->writeAttribute('xmlns:w10', 'urn:schemas-microsoft-com:office:word');
-        $xmlWriter->writeAttribute('xmlns:w', 'http://schemas.openxmlformats.org/wordprocessingml/2006/main');
-        $xmlWriter->writeAttribute('xmlns:wne', 'http://schemas.microsoft.com/office/word/2006/wordml');
+        $xmlWriter->writeAttribute('xmlns:w', 'http:
+        $xmlWriter->writeAttribute('xmlns:wne', 'http:
 
-        // Abstract numbering definitions
+        
         foreach ($styles as $style) {
             if ($style instanceof NumberingStyle) {
                 $levels = $style->getLevels();
@@ -62,34 +62,34 @@ class Numbering extends AbstractPart
 
                 $xmlWriter->startElement('w:nsid');
                 $xmlWriter->writeAttribute('w:val', $this->getRandomHexNumber());
-                $xmlWriter->endElement(); // w:nsid
+                $xmlWriter->endElement(); 
 
                 $xmlWriter->startElement('w:multiLevelType');
                 $xmlWriter->writeAttribute('w:val', $style->getType());
-                $xmlWriter->endElement(); // w:multiLevelType
+                $xmlWriter->endElement(); 
 
                 if (is_array($levels)) {
                     foreach ($levels as $level) {
                         $this->writeLevel($xmlWriter, $level);
                     }
                 }
-                $xmlWriter->endElement(); // w:abstractNum
+                $xmlWriter->endElement(); 
             }
         }
 
-        // Numbering definition instances
+        
         foreach ($styles as $style) {
             if ($style instanceof NumberingStyle) {
                 $xmlWriter->startElement('w:num');
                 $xmlWriter->writeAttribute('w:numId', $style->getIndex());
                 $xmlWriter->startElement('w:abstractNumId');
                 $xmlWriter->writeAttribute('w:val', $style->getIndex());
-                $xmlWriter->endElement(); // w:abstractNumId
-                $xmlWriter->endElement(); // w:num
+                $xmlWriter->endElement(); 
+                $xmlWriter->endElement(); 
             }
         }
 
-        $xmlWriter->endElement(); // w:numbering
+        $xmlWriter->endElement(); 
 
         return $xmlWriter->getData();
     }
@@ -106,7 +106,7 @@ class Numbering extends AbstractPart
         $xmlWriter->startElement('w:lvl');
         $xmlWriter->writeAttribute('w:ilvl', $level->getLevel());
 
-        // Numbering level properties
+        
         $properties = array(
             'start'   => 'start',
             'format'  => 'numFmt',
@@ -121,15 +121,15 @@ class Numbering extends AbstractPart
             if (!is_null($level->$getMethod())) {
                 $xmlWriter->startElement("w:{$nodeName}");
                 $xmlWriter->writeAttribute('w:val', $level->$getMethod());
-                $xmlWriter->endElement(); // w:start
+                $xmlWriter->endElement(); 
             }
         }
 
-        // Paragraph & font styles
+        
         $this->writeParagraph($xmlWriter, $level);
         $this->writeFont($xmlWriter, $level);
 
-        $xmlWriter->endElement(); // w:lvl
+        $xmlWriter->endElement(); 
     }
 
     /**
@@ -154,15 +154,15 @@ class Numbering extends AbstractPart
         $xmlWriter->startElement('w:tab');
         $xmlWriter->writeAttribute('w:val', 'num');
         $xmlWriter->writeAttributeIf($tabPos !== null, 'w:pos', $tabPos);
-        $xmlWriter->endElement(); // w:tab
-        $xmlWriter->endElement(); // w:tabs
+        $xmlWriter->endElement(); 
+        $xmlWriter->endElement(); 
 
         $xmlWriter->startElement('w:ind');
         $xmlWriter->writeAttributeIf($left !== null, 'w:left', $left);
         $xmlWriter->writeAttributeIf($hanging !== null, 'w:hanging', $hanging);
-        $xmlWriter->endElement(); // w:ind
+        $xmlWriter->endElement(); 
 
-        $xmlWriter->endElement(); // w:pPr
+        $xmlWriter->endElement(); 
     }
 
     /**
@@ -186,8 +186,8 @@ class Numbering extends AbstractPart
         $xmlWriter->writeAttributeIf($font !== null, 'w:hAnsi', $font);
         $xmlWriter->writeAttributeIf($font !== null, 'w:cs', $font);
         $xmlWriter->writeAttributeIf($hint !== null, 'w:hint', $hint);
-        $xmlWriter->endElement(); // w:rFonts
-        $xmlWriter->endElement(); // w:rPr
+        $xmlWriter->endElement(); 
+        $xmlWriter->endElement(); 
     }
 
     /**

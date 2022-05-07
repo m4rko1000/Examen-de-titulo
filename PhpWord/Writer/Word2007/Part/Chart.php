@@ -8,11 +8,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Part;
@@ -24,7 +24,7 @@ use PhpOffice\PhpWord\Shared\XMLWriter;
  * Word2007 chart part writer: word/charts/chartx.xml
  *
  * @since 0.12.0
- * @link http://www.datypic.com/sc/ooxml/e-draw-chart_chartSpace.html
+ * @link http:
  */
 class Chart extends AbstractPart
 {
@@ -80,14 +80,14 @@ class Chart extends AbstractPart
 
         $xmlWriter->startDocument('1.0', 'UTF-8', 'yes');
         $xmlWriter->startElement('c:chartSpace');
-        $xmlWriter->writeAttribute('xmlns:c', 'http://schemas.openxmlformats.org/drawingml/2006/chart');
-        $xmlWriter->writeAttribute('xmlns:a', 'http://schemas.openxmlformats.org/drawingml/2006/main');
-        $xmlWriter->writeAttribute('xmlns:r', 'http://schemas.openxmlformats.org/officeDocument/2006/relationships');
+        $xmlWriter->writeAttribute('xmlns:c', 'http:
+        $xmlWriter->writeAttribute('xmlns:a', 'http:
+        $xmlWriter->writeAttribute('xmlns:r', 'http:
 
         $this->writeChart($xmlWriter);
         $this->writeShape($xmlWriter);
 
-        $xmlWriter->endElement(); // c:chartSpace
+        $xmlWriter->endElement(); 
 
         return $xmlWriter->getData();
     }
@@ -95,7 +95,7 @@ class Chart extends AbstractPart
     /**
      * Write chart
      *
-     * @link http://www.datypic.com/sc/ooxml/t-draw-chart_CT_Chart.html
+     * @link http:
      * @param \PhpOffice\PhpWord\Shared\XMLWriter $xmlWriter
      * @return void
      */
@@ -107,20 +107,20 @@ class Chart extends AbstractPart
 
         $this->writePlotArea($xmlWriter);
 
-        $xmlWriter->endElement(); // c:chart
+        $xmlWriter->endElement(); 
     }
 
     /**
      * Write plot area.
      *
-     * @link http://www.datypic.com/sc/ooxml/t-draw-chart_CT_PlotArea.html
-     * @link http://www.datypic.com/sc/ooxml/t-draw-chart_CT_PieChart.html
-     * @link http://www.datypic.com/sc/ooxml/t-draw-chart_CT_DoughnutChart.html
-     * @link http://www.datypic.com/sc/ooxml/t-draw-chart_CT_BarChart.html
-     * @link http://www.datypic.com/sc/ooxml/t-draw-chart_CT_LineChart.html
-     * @link http://www.datypic.com/sc/ooxml/t-draw-chart_CT_AreaChart.html
-     * @link http://www.datypic.com/sc/ooxml/t-draw-chart_CT_RadarChart.html
-     * @link http://www.datypic.com/sc/ooxml/t-draw-chart_CT_ScatterChart.html
+     * @link http:
+     * @link http:
+     * @link http:
+     * @link http:
+     * @link http:
+     * @link http:
+     * @link http:
+     * @link http:
      * @param \PhpOffice\PhpWord\Shared\XMLWriter $xmlWriter
      * @return void
      */
@@ -133,7 +133,7 @@ class Chart extends AbstractPart
         $xmlWriter->startElement('c:plotArea');
         $xmlWriter->writeElement('c:layout');
 
-        // Chart
+        
         $chartType = $this->options['type'];
         $chartType .= $style->is3d() && !isset($this->options['no3d'])? '3D' : '';
         $chartType .= 'Chart';
@@ -147,8 +147,8 @@ class Chart extends AbstractPart
             $xmlWriter->writeElementBlock('c:holeSize', 'val', $this->options['hole']);
         }
         if (isset($this->options['bar'])) {
-            $xmlWriter->writeElementBlock('c:barDir', 'val', $this->options['bar']); // bar|col
-            $xmlWriter->writeElementBlock('c:grouping', 'val', 'clustered'); // 3d; standard = percentStacked
+            $xmlWriter->writeElementBlock('c:barDir', 'val', $this->options['bar']); 
+            $xmlWriter->writeElementBlock('c:grouping', 'val', 'clustered'); 
         }
         if (isset($this->options['radar'])) {
             $xmlWriter->writeElementBlock('c:radarStyle', 'val', $this->options['radar']);
@@ -157,24 +157,24 @@ class Chart extends AbstractPart
             $xmlWriter->writeElementBlock('c:scatterStyle', 'val', $this->options['scatter']);
         }
 
-        // Series
+        
         $this->writeSeries($xmlWriter, isset($this->options['scatter']));
 
-        // Axes
+        
         if (isset($this->options['axes'])) {
             $xmlWriter->writeElementBlock('c:axId', 'val', 1);
             $xmlWriter->writeElementBlock('c:axId', 'val', 2);
         }
 
-        $xmlWriter->endElement(); // chart type
+        $xmlWriter->endElement(); 
 
-        // Axes
+        
         if (isset($this->options['axes'])) {
             $this->writeAxis($xmlWriter, 'cat');
             $this->writeAxis($xmlWriter, 'val');
         }
 
-        $xmlWriter->endElement(); // c:plotArea
+        $xmlWriter->endElement(); 
     }
 
     /**
@@ -210,7 +210,7 @@ class Chart extends AbstractPart
                 $this->writeSeriesItem($xmlWriter, 'val', $values);
             }
 
-            $xmlWriter->endElement(); // c:ser
+            $xmlWriter->endElement(); 
             $index++;
         }
 
@@ -244,20 +244,20 @@ class Chart extends AbstractPart
 
             $xmlWriter->startElement('c:v');
             $xmlWriter->writeRaw($value);
-            $xmlWriter->endElement(); // c:v
+            $xmlWriter->endElement(); 
 
-            $xmlWriter->endElement(); // c:pt
+            $xmlWriter->endElement(); 
             $index++;
         }
 
-        $xmlWriter->endElement(); // $itemLit
-        $xmlWriter->endElement(); // $itemType
+        $xmlWriter->endElement(); 
+        $xmlWriter->endElement(); 
     }
 
     /**
      * Write axis
      *
-     * @link http://www.datypic.com/sc/ooxml/t-draw-chart_CT_CatAx.html
+     * @link http:
      * @param \PhpOffice\PhpWord\Shared\XMLWriter $xmlWriter
      * @param string $type
      * @return void
@@ -281,7 +281,7 @@ class Chart extends AbstractPart
             $xmlWriter->writeElementBlock('c:delete', 'val', 0);
             $xmlWriter->writeElementBlock('c:majorTickMark', 'val', 'none');
             $xmlWriter->writeElementBlock('c:minorTickMark', 'val', 'none');
-            $xmlWriter->writeElementBlock('c:tickLblPos', 'val', 'none'); // nextTo
+            $xmlWriter->writeElementBlock('c:tickLblPos', 'val', 'none'); 
             $xmlWriter->writeElementBlock('c:crosses', 'val', 'autoZero');
         }
         if (isset($this->options['radar'])) {
@@ -290,17 +290,17 @@ class Chart extends AbstractPart
 
         $xmlWriter->startElement('c:scaling');
         $xmlWriter->writeElementBlock('c:orientation', 'val', 'minMax');
-        $xmlWriter->endElement(); // c:scaling
+        $xmlWriter->endElement(); 
 
         $this->writeShape($xmlWriter, true);
 
-        $xmlWriter->endElement(); // $axisType
+        $xmlWriter->endElement(); 
     }
 
     /**
      * Write shape
      *
-     * @link http://www.datypic.com/sc/ooxml/t-a_CT_ShapeProperties.html
+     * @link http:
      * @param \PhpOffice\PhpWord\Shared\XMLWriter $xmlWriter
      * @param bool $line
      * @return void
@@ -314,7 +314,7 @@ class Chart extends AbstractPart
         } else {
             $xmlWriter->writeElement('a:noFill');
         }
-        $xmlWriter->endElement(); // a:ln
-        $xmlWriter->endElement(); // c:spPr
+        $xmlWriter->endElement(); 
+        $xmlWriter->endElement(); 
     }
 }

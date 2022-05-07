@@ -2,8 +2,8 @@
 
 
 
-// Core.php
-// @brief obtiene las configuraciones, muestra y carga los contenidos necesarios.
+
+
 
 class Core {
 
@@ -52,7 +52,3 @@ class Core {
 	}
 
 }
-
-
-
-?>

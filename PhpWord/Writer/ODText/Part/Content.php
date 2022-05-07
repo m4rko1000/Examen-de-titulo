@@ -8,11 +8,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\ODText\Part;
@@ -60,21 +60,21 @@ class Content extends AbstractPart
         $xmlWriter->startDocument('1.0', 'UTF-8');
         $xmlWriter->startElement('office:document-content');
         $this->writeCommonRootAttributes($xmlWriter);
-        $xmlWriter->writeAttribute('xmlns:xforms', 'http://www.w3.org/2002/xforms');
-        $xmlWriter->writeAttribute('xmlns:xsd', 'http://www.w3.org/2001/XMLSchema');
-        $xmlWriter->writeAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
+        $xmlWriter->writeAttribute('xmlns:xforms', 'http:
+        $xmlWriter->writeAttribute('xmlns:xsd', 'http:
+        $xmlWriter->writeAttribute('xmlns:xsi', 'http:
         $xmlWriter->writeAttribute('xmlns:field', 'urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0');
         $xmlWriter->writeAttribute('xmlns:formx', 'urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0');
 
-        // Font declarations and automatic styles
-        $this->writeFontFaces($xmlWriter); // office:font-face-decls
-        $this->writeAutoStyles($xmlWriter); // office:automatic-styles
+        
+        $this->writeFontFaces($xmlWriter); 
+        $this->writeAutoStyles($xmlWriter); 
 
-        // Body
+        
         $xmlWriter->startElement('office:body');
         $xmlWriter->startElement('office:text');
 
-        // Sequence declarations
+        
         $sequences = array('Illustration', 'Table', 'Text', 'Drawing');
         $xmlWriter->startElement('text:sequence-decls');
         foreach ($sequences as $sequence) {
@@ -83,9 +83,9 @@ class Content extends AbstractPart
             $xmlWriter->writeAttribute('text:name', $sequence);
             $xmlWriter->endElement();
         }
-        $xmlWriter->endElement(); // text:sequence-decl
+        $xmlWriter->endElement(); 
 
-        // Sections
+        
         $sections = $phpWord->getSections();
         foreach ($sections as $section) {
             $name = 'Section' . $section->getSectionId();
@@ -94,13 +94,13 @@ class Content extends AbstractPart
             $xmlWriter->writeAttribute('text:style-name', $name);
             $containerWriter = new Container($xmlWriter, $section);
             $containerWriter->write();
-            $xmlWriter->endElement(); // text:section
+            $xmlWriter->endElement(); 
         }
 
-        $xmlWriter->endElement(); // office:text
-        $xmlWriter->endElement(); // office:body
+        $xmlWriter->endElement(); 
+        $xmlWriter->endElement(); 
 
-        $xmlWriter->endElement(); // office:document-content
+        $xmlWriter->endElement(); 
 
         return $xmlWriter->getData();
     }
@@ -128,7 +128,7 @@ class Content extends AbstractPart
             }
         }
 
-        $xmlWriter->endElement(); // office:automatic-styles
+        $xmlWriter->endElement(); 
     }
 
     /**
@@ -234,14 +234,14 @@ class Content extends AbstractPart
         $paragraphStyle = $element->getParagraphStyle();
         $phpWord = $this->getParentWriter()->getPhpWord();
 
-        // Font
+        
         if ($fontStyle instanceof Font) {
             $fontStyleCount++;
             $style = $phpWord->addFontStyle("T{$fontStyleCount}", $fontStyle);
             $style->setAuto();
             $element->setFontStyle("T{$fontStyleCount}");
 
-        // Paragraph
+        
         } elseif ($paragraphStyle instanceof Paragraph) {
             $paragraphStyleCount++;
             $style = $phpWord->addParagraphStyle("P{$paragraphStyleCount}", array());

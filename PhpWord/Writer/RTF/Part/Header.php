@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\RTF\Part;
@@ -33,7 +34,7 @@ use PhpOffice\PhpWord\Style\Font;
  * - List table (not supported yet)
  *
  * @since 0.11.0
- * @link http://www.biblioscape.com/rtf15_spec.htm#Heading6
+ * @link http:
  */
 class Header extends AbstractPart
 {
@@ -173,7 +174,7 @@ class Header extends AbstractPart
     {
         $content = '';
 
-        $content .= '{\*\generator PhpWord;}'; // Set the generator
+        $content .= '{\*\generator PhpWord;}';
         $content .= PHP_EOL;
 
         return $content;
@@ -189,13 +190,13 @@ class Header extends AbstractPart
         $phpWord = $this->getParentWriter()->getPhpWord();
         $this->fontTable[] = Settings::getDefaultFontName();
 
-        // Search named styles
+
         $styles = Style::getStyles();
         foreach ($styles as $style) {
             $this->registerFontItems($style);
         }
 
-        // Search inline styles
+
         $sections = $phpWord->getSections();
         foreach ($sections as $section) {
             $elements = $section->getElements();

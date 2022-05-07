@@ -8,11 +8,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Part;
@@ -59,19 +59,19 @@ class Rels extends AbstractPart
     {
         $xmlWriter->startDocument('1.0', 'UTF-8', 'yes');
         $xmlWriter->startElement('Relationships');
-        $xmlWriter->writeAttribute('xmlns', 'http://schemas.openxmlformats.org/package/2006/relationships');
+        $xmlWriter->writeAttribute('xmlns', 'http:
 
-        // XML files relationships
+        
         foreach ($xmlRels as $target => $type) {
             $this->writeRel($xmlWriter, $relId++, $type, $target);
         }
 
-        // Media relationships
+        
         foreach ($mediaRels as $mediaRel) {
             $this->writeMediaRel($xmlWriter, $relId++, $mediaRel);
         }
 
-        $xmlWriter->endElement(); // Relationships
+        $xmlWriter->endElement(); 
     }
 
     /**
@@ -101,7 +101,7 @@ class Rels extends AbstractPart
      * Write individual rels entry.
      *
      * Format:
-     * <Relationship Id="rId..." Type="http://..." Target="....xml" TargetMode="..." />
+     * <Relationship Id="rId..." Type="http:
      *
      * @param \PhpOffice\PhpWord\Shared\XMLWriter $xmlWriter
      * @param int $relId Relationship ID
@@ -119,7 +119,7 @@ class Rels extends AbstractPart
             }
             $xmlWriter->startElement('Relationship');
             $xmlWriter->writeAttribute('Id', $relId);
-            $xmlWriter->writeAttribute('Type', 'http://schemas.openxmlformats.org/' . $type);
+            $xmlWriter->writeAttribute('Type', 'http:
             $xmlWriter->writeAttribute('Target', $target);
             if ($targetMode != '') {
                 $xmlWriter->writeAttribute('TargetMode', $targetMode);

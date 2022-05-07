@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\RTF\Style;
@@ -42,7 +43,7 @@ class Section extends AbstractStyle
 
         $content .= '\sectd ';
 
-        // Size & margin
+
         $content .= $this->getValueIf($style->getPageSizeW() !== null, '\pgwsxn' . $style->getPageSizeW());
         $content .= $this->getValueIf($style->getPageSizeH() !== null, '\pghsxn' . $style->getPageSizeH());
         $content .= ' ';
@@ -55,7 +56,7 @@ class Section extends AbstractStyle
         $content .= $this->getValueIf($style->getGutter() !== null, '\guttersxn' . $style->getGutter());
         $content .= ' ';
 
-        // Borders
+
         if ($style->hasBorder()) {
             $styleWriter = new Border($style);
             $styleWriter->setParentWriter($this->getParentWriter());

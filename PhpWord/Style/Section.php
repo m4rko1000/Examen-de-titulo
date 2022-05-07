@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Style;
@@ -35,20 +36,20 @@ class Section extends Border
      *
      * @const int|float
      */
-    const DEFAULT_WIDTH = 11870; // In twip
-    const DEFAULT_HEIGHT = 16787; // In twip
-    const DEFAULT_MARGIN = 1440; // In twip
-    const DEFAULT_GUTTER = 0; // In twip
-    const DEFAULT_HEADER_HEIGHT = 720; // In twip
-    const DEFAULT_FOOTER_HEIGHT = 720; // In twip
+    const DEFAULT_WIDTH = 11870;
+    const DEFAULT_HEIGHT = 16787;
+    const DEFAULT_MARGIN = 1440;
+    const DEFAULT_GUTTER = 0;
+    const DEFAULT_HEADER_HEIGHT = 720;
+    const DEFAULT_FOOTER_HEIGHT = 720;
     const DEFAULT_COLUMN_COUNT = 1;
-    const DEFAULT_COLUMN_SPACING = 720; // In twip
+    const DEFAULT_COLUMN_SPACING = 720;
 
     /**
      * Page Orientation
      *
      * @var string
-     * @link http://www.schemacentral.com/sc/ooxml/a-w_orient-1.html
+     * @link http:
      */
     private $orientation = self::ORIENTATION_PORTRAIT;
 
@@ -105,7 +106,7 @@ class Section extends Border
      * Page gutter spacing
      *
      * @var int|float
-     * @link http://www.schemacentral.com/sc/ooxml/e-w_pgMar-1.html
+     * @link http:
      */
     private $gutter = self::DEFAULT_GUTTER;
 
@@ -162,7 +163,7 @@ class Section extends Border
      * Line numbering
      *
      * @var \PhpOffice\PhpWord\Style\LineNumbering
-     * @link http://www.schemacentral.com/sc/ooxml/e-w_lnNumType-1.html
+     * @link http:
      */
     private $lineNumbering;
 

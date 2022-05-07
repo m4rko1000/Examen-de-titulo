@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord;
@@ -31,7 +32,7 @@ class Settings
      */
     const ZIPARCHIVE = 'ZipArchive';
     const PCLZIP     = 'PclZip';
-    const OLD_LIB    = 'PhpOffice\\PhpWord\\Shared\\ZipArchive'; // @deprecated 0.11
+    const OLD_LIB    = 'PhpOffice\\PhpWord\\Shared\\ZipArchive';
 
     /**
      * PDF rendering libraries
@@ -53,12 +54,12 @@ class Settings
      *
      * @const string
      */
-    const UNIT_TWIP  = 'twip'; // = 1/20 point
+    const UNIT_TWIP  = 'twip';
     const UNIT_CM    = 'cm';
     const UNIT_MM    = 'mm';
     const UNIT_INCH  = 'inch';
-    const UNIT_POINT = 'point'; // = 1/72 inch
-    const UNIT_PICA  = 'pica'; // = 1/6 inch = 12 points
+    const UNIT_POINT = 'point';
+    const UNIT_PICA  = 'pica';
 
     /**
      * Default font settings
@@ -69,7 +70,7 @@ class Settings
     const DEFAULT_FONT_NAME = 'Arial';
     const DEFAULT_FONT_SIZE = 10;
     const DEFAULT_FONT_COLOR = '000000';
-    const DEFAULT_FONT_CONTENT_TYPE = 'default'; // default|eastAsia|cs
+    const DEFAULT_FONT_CONTENT_TYPE = 'default';
 
     /**
      * Compatibility option for XMLWriter
@@ -266,8 +267,10 @@ class Settings
      */
     public static function setMeasurementUnit($value)
     {
-        $units = array(self::UNIT_TWIP, self::UNIT_CM, self::UNIT_MM, self::UNIT_INCH,
-            self::UNIT_POINT, self::UNIT_PICA);
+        $units = array(
+            self::UNIT_TWIP, self::UNIT_CM, self::UNIT_MM, self::UNIT_INCH,
+            self::UNIT_POINT, self::UNIT_PICA
+        );
         if (!in_array($value, $units)) {
             return false;
         }
@@ -368,7 +371,7 @@ class Settings
      */
     public static function loadConfig($filename = null)
     {
-        // Get config file
+
         $configFile = null;
         $configPath = __DIR__ . '/../../';
         if ($filename !== null) {
@@ -383,7 +386,7 @@ class Settings
             }
         }
 
-        // Parse config file
+
         $config = array();
         if ($configFile !== null) {
             $config = @parse_ini_file($configFile);
@@ -392,7 +395,7 @@ class Settings
             }
         }
 
-        // Set config value
+
         foreach ($config as $key => $value) {
             $method = "set{$key}";
             if (method_exists(__CLASS__, $method)) {

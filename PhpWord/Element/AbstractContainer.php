@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Element;
@@ -90,25 +91,23 @@ abstract class AbstractContainer extends AbstractElement
             $functions['add' . strtolower($element)] = $element;
         }
 
-        // Run valid `add` command
+
         $function = strtolower($function);
         if (isset($functions[$function])) {
             $element = $functions[$function];
 
-            // Special case for TextBreak
-            // @todo Remove the `$count` parameter in 1.0.0 to make this element similiar to other elements?
+
+
             if ($element == 'TextBreak') {
-                @list($count, $fontStyle, $paragraphStyle) = $args; // Suppress error
+                @list($count, $fontStyle, $paragraphStyle) = $args;
                 if ($count === null) {
                     $count = 1;
                 }
                 for ($i = 1; $i <= $count; $i++) {
                     $this->addElement($element, $fontStyle, $paragraphStyle);
                 }
-
-            // All other elements
             } else {
-                array_unshift($args, $element); // Prepend element name to the beginning of args array
+                array_unshift($args, $element);
                 return call_user_func_array(array($this, 'addElement'), $args);
             }
         }
@@ -129,22 +128,22 @@ abstract class AbstractContainer extends AbstractElement
         $elementClass = __NAMESPACE__ . '\\' . $elementName;
         $this->checkValidity($elementName);
 
-        // Get arguments
+
         $args = func_get_args();
         $withoutP = in_array($this->container, array('TextRun', 'Footnote', 'Endnote', 'ListItemRun', 'Field'));
         if ($withoutP && ($elementName == 'Text' || $elementName == 'PreserveText')) {
-            $args[3] = null; // Remove paragraph style for texts in textrun
+            $args[3] = null;
         }
 
-        // Create element using reflection
+
         $reflection = new \ReflectionClass($elementClass);
         $elementArgs = $args;
-        array_shift($elementArgs); // Shift the $elementName off the beginning of array
+        array_shift($elementArgs);
 
         /** @var \PhpOffice\PhpWord\Element\AbstractElement $element Type hint */
         $element = $reflection->newInstanceArgs($elementArgs);
 
-        // Set parent container
+
         $element->setParentContainer($this);
         $element->setElementIndex($this->countElements() + 1);
         $element->setElementId();
@@ -214,22 +213,22 @@ abstract class AbstractContainer extends AbstractElement
             'Chart'         => array('Section'),
         );
 
-        // Special condition, e.g. preservetext can only exists in cell when
-        // the cell is located in header or footer
+
+
         $validSubcontainers = array(
             'PreserveText'  => array(array('Cell'), array('Header', 'Footer')),
             'Footnote'      => array(array('Cell', 'TextRun'), array('Section')),
             'Endnote'       => array(array('Cell', 'TextRun'), array('Section')),
         );
 
-        // Check if a method is valid for current container
+
         if (isset($validContainers[$method])) {
             if (!in_array($this->container, $validContainers[$method])) {
                 throw new \BadMethodCallException("Cannot add {$method} in {$this->container}.");
             }
         }
 
-        // Check if a method is valid for current container, located in other container
+
         if (isset($validSubcontainers[$method])) {
             $rules = $validSubcontainers[$method];
             $containers = $rules[0];

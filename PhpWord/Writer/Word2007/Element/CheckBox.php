@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Element;
@@ -45,37 +46,37 @@ class CheckBox extends Text
         $xmlWriter->startElement('w:ffData');
         $xmlWriter->startElement('w:name');
         $xmlWriter->writeAttribute('w:val', $this->getText($element->getName()));
-        $xmlWriter->endElement(); //w:name
+        $xmlWriter->endElement();
         $xmlWriter->writeAttribute('w:enabled', '');
         $xmlWriter->startElement('w:calcOnExit');
         $xmlWriter->writeAttribute('w:val', '0');
-        $xmlWriter->endElement(); //w:calcOnExit
+        $xmlWriter->endElement();
         $xmlWriter->startElement('w:checkBox');
         $xmlWriter->writeAttribute('w:sizeAuto', '');
         $xmlWriter->startElement('w:default');
         $xmlWriter->writeAttribute('w:val', 0);
-        $xmlWriter->endElement(); //w:default
-        $xmlWriter->endElement(); //w:checkBox
-        $xmlWriter->endElement(); // w:ffData
-        $xmlWriter->endElement(); // w:fldChar
-        $xmlWriter->endElement(); // w:r
+        $xmlWriter->endElement();
+        $xmlWriter->endElement();
+        $xmlWriter->endElement();
+        $xmlWriter->endElement();
+        $xmlWriter->endElement();
 
         $xmlWriter->startElement('w:r');
         $xmlWriter->startElement('w:instrText');
         $xmlWriter->writeAttribute('xml:space', 'preserve');
         $xmlWriter->writeRaw(' FORMCHECKBOX ');
-        $xmlWriter->endElement();// w:instrText
-        $xmlWriter->endElement(); // w:r
+        $xmlWriter->endElement();
+        $xmlWriter->endElement();
         $xmlWriter->startElement('w:r');
         $xmlWriter->startElement('w:fldChar');
         $xmlWriter->writeAttribute('w:fldCharType', 'separate');
-        $xmlWriter->endElement();// w:fldChar
-        $xmlWriter->endElement(); // w:r
+        $xmlWriter->endElement();
+        $xmlWriter->endElement();
         $xmlWriter->startElement('w:r');
         $xmlWriter->startElement('w:fldChar');
         $xmlWriter->writeAttribute('w:fldCharType', 'end');
-        $xmlWriter->endElement();// w:fldChar
-        $xmlWriter->endElement(); // w:r
+        $xmlWriter->endElement();
+        $xmlWriter->endElement();
 
         $xmlWriter->startElement('w:r');
 
@@ -84,9 +85,9 @@ class CheckBox extends Text
         $xmlWriter->startElement('w:t');
         $xmlWriter->writeAttribute('xml:space', 'preserve');
         $xmlWriter->writeRaw($this->getText($element->getText()));
-        $xmlWriter->endElement(); // w:t
-        $xmlWriter->endElement(); // w:r
+        $xmlWriter->endElement();
+        $xmlWriter->endElement();
 
-        $this->endElementP(); // w:p
+        $this->endElementP();
     }
 }

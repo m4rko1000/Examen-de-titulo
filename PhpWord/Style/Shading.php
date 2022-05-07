@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Style;
@@ -20,7 +21,7 @@ namespace PhpOffice\PhpWord\Style;
 /**
  * Shading style
  *
- * @link http://www.schemacentral.com/sc/ooxml/t-w_CT_Shd.html
+ * @link http:
  * @since 0.10.0
  */
 class Shading extends AbstractStyle
@@ -29,21 +30,21 @@ class Shading extends AbstractStyle
      * Pattern constants (partly)
      *
      * @const string
-     * @link http://www.schemacentral.com/sc/ooxml/t-w_ST_Shd.html
+     * @link http:
      */
-    const PATTERN_CLEAR = 'clear'; // No pattern
-    const PATTERN_SOLID = 'solid'; // 100% fill pattern
-    const PATTERN_HSTRIPE = 'horzStripe'; // Horizontal stripe pattern
-    const PATTERN_VSTRIPE = 'vertStripe'; // Vertical stripe pattern
-    const PATTERN_DSTRIPE = 'diagStripe'; // Diagonal stripe pattern
-    const PATTERN_HCROSS = 'horzCross'; // Horizontal cross pattern
-    const PATTERN_DCROSS = 'diagCross'; // Diagonal cross pattern
+    const PATTERN_CLEAR = 'clear';
+    const PATTERN_SOLID = 'solid';
+    const PATTERN_HSTRIPE = 'horzStripe';
+    const PATTERN_VSTRIPE = 'vertStripe';
+    const PATTERN_DSTRIPE = 'diagStripe';
+    const PATTERN_HCROSS = 'horzCross';
+    const PATTERN_DCROSS = 'diagCross';
 
     /**
      * Shading pattern
      *
      * @var string
-     * @link http://www.schemacentral.com/sc/ooxml/t-w_ST_Shd.html
+     * @link http:
      */
     private $pattern = self::PATTERN_CLEAR;
 

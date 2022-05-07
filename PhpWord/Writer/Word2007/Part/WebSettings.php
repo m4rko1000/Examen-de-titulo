@@ -8,11 +8,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Part;
@@ -37,14 +37,14 @@ class WebSettings extends Settings
 
         $xmlWriter->startDocument('1.0', 'UTF-8', 'yes');
         $xmlWriter->startElement('w:webSettings');
-        $xmlWriter->writeAttribute('xmlns:r', 'http://schemas.openxmlformats.org/officeDocument/2006/relationships');
-        $xmlWriter->writeAttribute('xmlns:w', 'http://schemas.openxmlformats.org/wordprocessingml/2006/main');
+        $xmlWriter->writeAttribute('xmlns:r', 'http:
+        $xmlWriter->writeAttribute('xmlns:w', 'http:
 
         foreach ($settings as $settingKey => $settingValue) {
             $this->writeSetting($xmlWriter, $settingKey, $settingValue);
         }
 
-        $xmlWriter->endElement(); // w:settings
+        $xmlWriter->endElement(); 
 
         return $xmlWriter->getData();
     }

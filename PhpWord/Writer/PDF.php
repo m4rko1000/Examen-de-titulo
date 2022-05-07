@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PhpWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer;
@@ -68,10 +69,10 @@ class PDF
      */
     public function __call($name, $arguments)
     {
-        // Note: Commented because all exceptions should already be catched by `__construct`
-        // if ($this->renderer === null) {
-        //     throw new Exception("PDF Rendering library has not been defined.");
-        // }
+
+
+
+
 
         return call_user_func_array(array($this->renderer, $name), $arguments);
     }

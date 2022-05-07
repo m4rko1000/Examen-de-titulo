@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Element;
@@ -53,20 +54,20 @@ class Table extends AbstractElement
         if ($rowCount > 0) {
             $xmlWriter->startElement('w:tbl');
 
-            // Write columns
+
             $this->writeColumns($xmlWriter, $element);
 
-            // Write style
+
             $styleWriter = new TableStyleWriter($xmlWriter, $element->getStyle());
             $styleWriter->setWidth($element->getWidth());
             $styleWriter->write();
 
-            // Write rows
+
             for ($i = 0; $i < $rowCount; $i++) {
                 $this->writeRow($xmlWriter, $rows[$i]);
             }
 
-            $xmlWriter->endElement(); // w:tbl
+            $xmlWriter->endElement();
         }
     }
 
@@ -104,7 +105,7 @@ class Table extends AbstractElement
             }
             $xmlWriter->endElement();
         }
-        $xmlWriter->endElement(); // w:tblGrid
+        $xmlWriter->endElement();
     }
 
     /**
@@ -118,7 +119,7 @@ class Table extends AbstractElement
     {
         $xmlWriter->startElement('w:tr');
 
-        // Write style
+
         $rowStyle = $row->getStyle();
         if ($rowStyle instanceof RowStyle) {
             $styleWriter = new RowStyleWriter($xmlWriter, $rowStyle);
@@ -126,12 +127,12 @@ class Table extends AbstractElement
             $styleWriter->write();
         }
 
-        // Write cells
+
         foreach ($row->getCells() as $cell) {
             $this->writeCell($xmlWriter, $cell);
         }
 
-        $xmlWriter->endElement(); // w:tr
+        $xmlWriter->endElement();
     }
 
     /**
@@ -146,7 +147,7 @@ class Table extends AbstractElement
 
         $xmlWriter->startElement('w:tc');
 
-        // Write style
+
         $cellStyle = $cell->getStyle();
         if ($cellStyle instanceof CellStyle) {
             $styleWriter = new CellStyleWriter($xmlWriter, $cellStyle);
@@ -154,10 +155,10 @@ class Table extends AbstractElement
             $styleWriter->write();
         }
 
-        // Write content
+
         $containerWriter = new Container($xmlWriter, $cell);
         $containerWriter->write();
 
-        $xmlWriter->endElement(); // w:tc
+        $xmlWriter->endElement();
     }
 }

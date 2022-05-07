@@ -8,11 +8,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\ODText\Part;
@@ -48,26 +48,26 @@ abstract class AbstractPart extends Word2007AbstractPart
         $xmlWriter->writeAttribute('xmlns:table', 'urn:oasis:names:tc:opendocument:xmlns:table:1.0');
         $xmlWriter->writeAttribute('xmlns:draw', 'urn:oasis:names:tc:opendocument:xmlns:drawing:1.0');
         $xmlWriter->writeAttribute('xmlns:fo', 'urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0');
-        $xmlWriter->writeAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink');
-        $xmlWriter->writeAttribute('xmlns:dc', 'http://purl.org/dc/elements/1.1/');
+        $xmlWriter->writeAttribute('xmlns:xlink', 'http:
+        $xmlWriter->writeAttribute('xmlns:dc', 'http:
         $xmlWriter->writeAttribute('xmlns:meta', 'urn:oasis:names:tc:opendocument:xmlns:meta:1.0');
         $xmlWriter->writeAttribute('xmlns:number', 'urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0');
         $xmlWriter->writeAttribute('xmlns:svg', 'urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0');
         $xmlWriter->writeAttribute('xmlns:chart', 'urn:oasis:names:tc:opendocument:xmlns:chart:1.0');
         $xmlWriter->writeAttribute('xmlns:dr3d', 'urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0');
-        $xmlWriter->writeAttribute('xmlns:math', 'http://www.w3.org/1998/Math/MathML');
+        $xmlWriter->writeAttribute('xmlns:math', 'http:
         $xmlWriter->writeAttribute('xmlns:form', 'urn:oasis:names:tc:opendocument:xmlns:form:1.0');
         $xmlWriter->writeAttribute('xmlns:script', 'urn:oasis:names:tc:opendocument:xmlns:script:1.0');
-        $xmlWriter->writeAttribute('xmlns:ooo', 'http://openoffice.org/2004/office');
-        $xmlWriter->writeAttribute('xmlns:ooow', 'http://openoffice.org/2004/writer');
-        $xmlWriter->writeAttribute('xmlns:oooc', 'http://openoffice.org/2004/calc');
-        $xmlWriter->writeAttribute('xmlns:dom', 'http://www.w3.org/2001/xml-events');
-        $xmlWriter->writeAttribute('xmlns:rpt', 'http://openoffice.org/2005/report');
+        $xmlWriter->writeAttribute('xmlns:ooo', 'http:
+        $xmlWriter->writeAttribute('xmlns:ooow', 'http:
+        $xmlWriter->writeAttribute('xmlns:oooc', 'http:
+        $xmlWriter->writeAttribute('xmlns:dom', 'http:
+        $xmlWriter->writeAttribute('xmlns:rpt', 'http:
         $xmlWriter->writeAttribute('xmlns:of', 'urn:oasis:names:tc:opendocument:xmlns:of:1.2');
-        $xmlWriter->writeAttribute('xmlns:xhtml', 'http://www.w3.org/1999/xhtml');
-        $xmlWriter->writeAttribute('xmlns:grddl', 'http://www.w3.org/2003/g/data-view#');
-        $xmlWriter->writeAttribute('xmlns:tableooo', 'http://openoffice.org/2009/table');
-        $xmlWriter->writeAttribute('xmlns:css3t', 'http://www.w3.org/TR/css3-text/');
+        $xmlWriter->writeAttribute('xmlns:xhtml', 'http:
+        $xmlWriter->writeAttribute('xmlns:grddl', 'http:
+        $xmlWriter->writeAttribute('xmlns:tableooo', 'http:
+        $xmlWriter->writeAttribute('xmlns:css3t', 'http:
     }
 
     /**
@@ -84,14 +84,14 @@ abstract class AbstractPart extends Word2007AbstractPart
         $numFonts = 0;
         if (count($styles) > 0) {
             foreach ($styles as $style) {
-                // Font
+                
                 if ($style instanceof Font) {
                     $numFonts++;
                     $name = $style->getName();
                     if (!in_array($name, $fontTable)) {
                         $fontTable[] = $name;
 
-                        // style:font-face
+                        
                         $xmlWriter->startElement('style:font-face');
                         $xmlWriter->writeAttribute('style:name', $name);
                         $xmlWriter->writeAttribute('svg:font-family', $name);

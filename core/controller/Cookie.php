@@ -1,8 +1,8 @@
 <?php
 
 
-// Cookie.php
-// @brief esto es algo mucho mas magico
+
+
 
 class Cookie {
 	function __get($value){
@@ -21,7 +21,3 @@ class Cookie {
 		return $found;
 	}
 }
-
-
-
-?>

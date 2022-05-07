@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Element;
@@ -53,17 +54,17 @@ class ListItem extends AbstractElement
         $xmlWriter->startElement('w:numPr');
         $xmlWriter->startElement('w:ilvl');
         $xmlWriter->writeAttribute('w:val', $element->getDepth());
-        $xmlWriter->endElement(); // w:ilvl
+        $xmlWriter->endElement();
         $xmlWriter->startElement('w:numId');
         $xmlWriter->writeAttribute('w:val', $element->getStyle()->getNumId());
-        $xmlWriter->endElement(); // w:numId
-        $xmlWriter->endElement(); // w:numPr
+        $xmlWriter->endElement();
+        $xmlWriter->endElement();
 
-        $xmlWriter->endElement(); // w:pPr
+        $xmlWriter->endElement();
 
         $elementWriter = new Text($xmlWriter, $textObject, true);
         $elementWriter->write();
 
-        $xmlWriter->endElement(); // w:p
+        $xmlWriter->endElement();
     }
 }

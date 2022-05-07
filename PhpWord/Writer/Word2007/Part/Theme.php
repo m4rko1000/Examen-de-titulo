@@ -8,11 +8,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Part;
@@ -35,7 +35,7 @@ class Theme extends AbstractPart
         $str = '';
 
         $str .= '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
-        $str .= '<a:theme xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" name="Office Theme">';
+        $str .= '<a:theme xmlns:a="http:
         $str .= '<a:themeElements>';
         $str .= $this->writeColorScheme();
         $str .= $this->writeFontScheme();

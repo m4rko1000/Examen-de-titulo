@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Element;
@@ -82,18 +83,18 @@ class TOC extends AbstractElement
 
         $xmlWriter->startElement('w:p');
 
-        // Write style and field mark
+
         $this->writeStyle($xmlWriter, $element, $indent);
         if ($writeFieldMark) {
             $this->writeFieldMark($xmlWriter, $element);
         }
 
-        // Hyperlink
+
         $xmlWriter->startElement('w:hyperlink');
         $xmlWriter->writeAttribute('w:anchor', "_Toc{$rId}");
         $xmlWriter->writeAttribute('w:history', '1');
 
-        // Title text
+
         $xmlWriter->startElement('w:r');
         if ($isObject) {
             $styleWriter = new FontStyleWriter($xmlWriter, $fontStyle);
@@ -102,7 +103,7 @@ class TOC extends AbstractElement
         $xmlWriter->startElement('w:t');
         $xmlWriter->writeRaw($title->getText());
         $xmlWriter->endElement();
-        $xmlWriter->endElement(); // w:r
+        $xmlWriter->endElement();
 
         $xmlWriter->startElement('w:r');
         $xmlWriter->writeElement('w:tab', null);
@@ -127,9 +128,9 @@ class TOC extends AbstractElement
         $xmlWriter->endElement();
         $xmlWriter->endElement();
 
-        $xmlWriter->endElement(); // w:hyperlink
+        $xmlWriter->endElement();
 
-        $xmlWriter->endElement(); // w:p
+        $xmlWriter->endElement();
     }
 
     /**
@@ -148,35 +149,35 @@ class TOC extends AbstractElement
 
         $xmlWriter->startElement('w:pPr');
 
-        // Paragraph
+
         if ($isObject && !is_null($fontStyle->getParagraph())) {
             $styleWriter = new ParagraphStyleWriter($xmlWriter, $fontStyle->getParagraph());
             $styleWriter->write();
         }
 
-        // Font
+
         if (!empty($fontStyle) && !$isObject) {
             $xmlWriter->startElement('w:rPr');
             $xmlWriter->startElement('w:rStyle');
             $xmlWriter->writeAttribute('w:val', $fontStyle);
             $xmlWriter->endElement();
-            $xmlWriter->endElement(); // w:rPr
+            $xmlWriter->endElement();
         }
 
-        // Tab
+
         $xmlWriter->startElement('w:tabs');
         $styleWriter = new TabStyleWriter($xmlWriter, $tocStyle);
         $styleWriter->write();
         $xmlWriter->endElement();
 
-        // Indent
+
         if ($indent > 0) {
             $xmlWriter->startElement('w:ind');
             $xmlWriter->writeAttribute('w:left', $indent);
             $xmlWriter->endElement();
         }
 
-        $xmlWriter->endElement(); // w:pPr
+        $xmlWriter->endElement();
     }
 
     /**

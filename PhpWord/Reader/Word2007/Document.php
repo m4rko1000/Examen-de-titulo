@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Reader\Word2007;
@@ -79,7 +80,7 @@ class Document extends AbstractPart
                     $addMethod = "add{$hfType}";
                     $hfObject = $section->$addMethod($hfSetting['type']);
 
-                    // Read header/footer content
+
                     $xmlReader = new XMLReader();
                     $xmlReader->getDomFromZip($this->docFile, $xmlFile);
                     $nodes = $xmlReader->getElements('*');
@@ -123,8 +124,8 @@ class Document extends AbstractPart
         );
         $styles = $this->readStyleDefs($xmlReader, $domNode, $styleDefs);
 
-        // Header and footer
-        // @todo Cleanup this part
+
+
         $nodes = $xmlReader->getElements('*', $domNode);
         foreach ($nodes as $node) {
             if ($node->nodeName == 'w:headerReference' || $node->nodeName == 'w:footerReference') {
@@ -151,15 +152,15 @@ class Document extends AbstractPart
      */
     private function readWPNode(XMLReader $xmlReader, \DOMElement $node, Section &$section)
     {
-        // Page break
+
         if ($xmlReader->getAttribute('w:type', $node, 'w:r/w:br') == 'page') {
-            $section->addPageBreak(); // PageBreak
+            $section->addPageBreak();
         }
 
-        // Paragraph
+
         $this->readParagraph($xmlReader, $node, $section);
 
-        // Section properties
+
         if ($xmlReader->elementExists('w:pPr/w:sectPr', $node)) {
             $sectPrNode = $xmlReader->getElement('w:pPr/w:sectPr', $node);
             if ($sectPrNode !== null) {

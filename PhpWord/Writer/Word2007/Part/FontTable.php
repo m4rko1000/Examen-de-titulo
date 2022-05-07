@@ -8,11 +8,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Part;
@@ -35,8 +35,8 @@ class FontTable extends AbstractPart
         $str = '';
         $str .= '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
         $str .= '<w:fonts ' .
-            'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" ' .
-            'xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">';
+            'xmlns:r="http:
+            'xmlns:w="http:
 
         $str .= '<w:font w:name="Times New Roman">';
         $str .= '<w:panose1 w:val="02020603050405020304" />';

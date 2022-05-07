@@ -1,8 +1,8 @@
 <?php
 
 
-// View.php
-// @brief Una vista corresponde a cada componente visual dentro de un modulo.
+
+
 
 class View {
 	/**
@@ -10,7 +10,7 @@ class View {
 	* @brief la funcion load carga una vista correspondiente a un modulo
 	**/	
 	public static function load($view){
-		// Module::$module;
+		
 		if(!isset($_GET['view'])){
 			include "core/modules/".Module::$module."/view/".$view."/widget-default.php";
 		}else{
@@ -46,7 +46,3 @@ class View {
 	}
 
 }
-
-
-
-?>

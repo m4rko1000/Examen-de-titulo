@@ -1,10 +1,11 @@
 <?php
+
 /**
  * PHPWord
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2014 PHPWord
- * @license     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt LGPL
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Shared;
@@ -74,7 +75,7 @@ class Drawing
      */
     public static function degreesToAngle($pValue = 0)
     {
-        return (integer)round($pValue * 60000);
+        return (int)round($pValue * 60000);
     }
 
     /**

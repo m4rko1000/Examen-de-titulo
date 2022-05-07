@@ -29,20 +29,20 @@ class CamaraData {
 		Executor::doit($sql);
 	}
 
-// partiendo de que ya tenemos creado un objecto ItemData previamente utilizamos el contexto
+
 	public function update(){
 		$sql = "update ".self::$tablename." set code=\"$this->codigo\",modelo=\"$this->modelo\" where id=$this->id";
 		Executor::doit($sql);
 	}
 
-//	public function avaiable(){
-//		$sql = "update ".self::$tablename." set status_id=1 where id=$this->id";
-//		Executor::doit($sql);
+
+
+
 	}
 
-//	public function unavaiable(){
-//		$sql = "update ".self::$tablename." set status_id=2 where id=$this->id";
-//		Executor::doit($sql);
+
+
+
 
 
 	public static function getById($id){

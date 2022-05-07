@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Element;
@@ -278,16 +279,16 @@ abstract class AbstractElement
     {
         $this->parentContainer = substr(get_class($container), strrpos(get_class($container), '\\') + 1);
 
-        // Set nested level
+
         $this->nestedLevel = $container->getNestedLevel();
         if ($this->parentContainer == 'Cell') {
             $this->nestedLevel++;
         }
 
-        // Set phpword
+
         $this->setPhpWord($container->getPhpWord());
 
-        // Set doc part
+
         if (!$this instanceof Footnote) {
             $this->setDocPart($container->getDocPart(), $container->getDocPartId());
         }

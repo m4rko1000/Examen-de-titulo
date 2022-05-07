@@ -15,6 +15,5 @@ $r->editorial_id = $_POST["editorial_id"]!="" ? $_POST["editorial_id"] : "NULL";
 $r->author_id = $_POST["author_id"]!="" ? $_POST["author_id"] : "NULL";
 $r->add();
 }
-//Core::alert("Agregado exitosamente!");
+
 Core::redir("./index.php?view=books");
-?>

@@ -1,7 +1,7 @@
 <?php
 
 
-// Action.php
+
 
 class Action {
 	/**
@@ -9,7 +9,7 @@ class Action {
 	* @brief la funcion load carga una vista correspondiente a un modulo
 	**/	
 	public static function load($action){
-		// Module::$module;
+		
 		
 		if(!isset($_GET['action'])){
 			include "core/modules/".Module::$module."/action/".$action."/action-default.php";
@@ -53,7 +53,3 @@ class Action {
 	}
 
 }
-
-
-
-?>

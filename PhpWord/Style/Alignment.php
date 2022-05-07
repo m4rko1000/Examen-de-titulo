@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Style;
@@ -20,19 +21,19 @@ namespace PhpOffice\PhpWord\Style;
 /**
  * Alignment style
  *
- * @link http://www.schemacentral.com/sc/ooxml/t-w_CT_Jc.html
+ * @link http:
  * @since 0.11.0
  */
 class Alignment extends AbstractStyle
 {
     /**
-     * @const string Alignment http://www.schemacentral.com/sc/ooxml/t-w_ST_Jc.html
+     * @const string Alignment http:
      */
-    const ALIGN_LEFT = 'left'; // Align left
-    const ALIGN_RIGHT = 'right'; // Align right
-    const ALIGN_CENTER = 'center'; // Align center
-    const ALIGN_BOTH = 'both'; // Align both
-    const ALIGN_JUSTIFY = 'justify'; // Alias for align both
+    const ALIGN_LEFT = 'left';
+    const ALIGN_RIGHT = 'right';
+    const ALIGN_CENTER = 'center';
+    const ALIGN_BOTH = 'both';
+    const ALIGN_JUSTIFY = 'justify';
 
     /**
      * @var string Alignment

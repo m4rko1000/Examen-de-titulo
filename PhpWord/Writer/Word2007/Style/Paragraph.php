@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Style;
@@ -86,33 +87,33 @@ class Paragraph extends AbstractStyle
             $xmlWriter->startElement('w:pPr');
         }
 
-        // Style name
+
         if ($this->isInline === true) {
             $xmlWriter->writeElementIf($styles['name'] !== null, 'w:pStyle', 'w:val', $styles['name']);
         }
 
-        // Alignment
+
         $styleWriter = new Alignment($xmlWriter, new AlignmentStyle(array('value' => $styles['alignment'])));
         $styleWriter->write();
 
-        // Pagination
+
         $xmlWriter->writeElementIf($styles['pagination']['widowControl'] === false, 'w:widowControl', 'w:val', '0');
         $xmlWriter->writeElementIf($styles['pagination']['keepNext'] === true, 'w:keepNext', 'w:val', '1');
         $xmlWriter->writeElementIf($styles['pagination']['keepLines'] === true, 'w:keepLines', 'w:val', '1');
         $xmlWriter->writeElementIf($styles['pagination']['pageBreak'] === true, 'w:pageBreakBefore', 'w:val', '1');
 
-        // Child style: indentation, spacing, and shading
+
         $this->writeChildStyle($xmlWriter, 'Indentation', $styles['indentation']);
         $this->writeChildStyle($xmlWriter, 'Spacing', $styles['spacing']);
         $this->writeChildStyle($xmlWriter, 'Shading', $styles['shading']);
 
-        // Tabs
+
         $this->writeTabs($xmlWriter, $styles['tabs']);
 
-        // Numbering
+
         $this->writeNumbering($xmlWriter, $styles['numbering']);
 
-        // Border
+
         if ($style->hasBorder()) {
             $xmlWriter->startElement('w:pBdr');
 
@@ -125,7 +126,7 @@ class Paragraph extends AbstractStyle
         }
 
         if (!$this->withoutPPR) {
-            $xmlWriter->endElement(); // w:pPr
+            $xmlWriter->endElement();
         }
     }
 
@@ -166,15 +167,15 @@ class Paragraph extends AbstractStyle
             $xmlWriter->startElement('w:numPr');
             $xmlWriter->startElement('w:numId');
             $xmlWriter->writeAttribute('w:val', $numbering->getIndex());
-            $xmlWriter->endElement(); // w:numId
+            $xmlWriter->endElement();
             $xmlWriter->startElement('w:ilvl');
             $xmlWriter->writeAttribute('w:val', $numLevel);
-            $xmlWriter->endElement(); // w:ilvl
-            $xmlWriter->endElement(); // w:numPr
+            $xmlWriter->endElement();
+            $xmlWriter->endElement();
 
             $xmlWriter->startElement('w:outlineLvl');
             $xmlWriter->writeAttribute('w:val', $numLevel);
-            $xmlWriter->endElement(); // w:outlineLvl
+            $xmlWriter->endElement();
         }
     }
 

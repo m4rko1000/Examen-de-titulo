@@ -8,11 +8,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Reader\Word2007;
@@ -34,11 +34,11 @@ abstract class AbstractPart
      *
      * @const int
      */
-    const READ_VALUE = 'attributeValue';            // Read attribute value
-    const READ_EQUAL = 'attributeEquals';           // Read `true` when attribute value equals specified value
-    const READ_TRUE  = 'attributeTrue';             // Read `true` when element exists
-    const READ_FALSE = 'attributeFalse';            // Read `false` when element exists
-    const READ_SIZE  = 'attributeMultiplyByTwo';    // Read special attribute value for Font::$size
+    const READ_VALUE = 'attributeValue';            
+    const READ_EQUAL = 'attributeEquals';           
+    const READ_TRUE  = 'attributeTrue';             
+    const READ_FALSE = 'attributeFalse';            
+    const READ_SIZE  = 'attributeMultiplyByTwo';    
 
     /**
      * Document file
@@ -102,7 +102,7 @@ abstract class AbstractPart
      */
     protected function readParagraph(XMLReader $xmlReader, \DOMElement $domNode, $parent, $docPart = 'document')
     {
-        // Paragraph style
+        
         $paragraphStyle = null;
         $headingMatches = array();
         if ($xmlReader->elementExists('w:pPr', $domNode)) {
@@ -112,7 +112,7 @@ abstract class AbstractPart
             }
         }
 
-        // PreserveText
+        
         if ($xmlReader->elementExists('w:r/w:instrText', $domNode)) {
             $ignoreText = false;
             $textContent = '';
@@ -138,7 +138,7 @@ abstract class AbstractPart
             }
             $parent->addPreserveText($textContent, $fontStyle, $paragraphStyle);
 
-        // List item
+        
         } elseif ($xmlReader->elementExists('w:pPr/w:numPr', $domNode)) {
             $textContent = '';
             $numId = $xmlReader->getAttribute('w:val', $domNode, 'w:pPr/w:numPr/w:numId');
@@ -149,7 +149,7 @@ abstract class AbstractPart
             }
             $parent->addListItem($textContent, $levelId, null, "PHPWordList{$numId}", $paragraphStyle);
 
-        // Heading
+        
         } elseif (!empty($headingMatches)) {
             $textContent = '';
             $nodes = $xmlReader->getElements('w:r', $domNode);
@@ -158,7 +158,7 @@ abstract class AbstractPart
             }
             $parent->addTitle($textContent, $headingMatches[1]);
 
-        // Text and TextRun
+        
         } else {
             $runCount = $xmlReader->countElements('w:r', $domNode);
             $linkCount = $xmlReader->countElements('w:hyperlink', $domNode);
@@ -199,7 +199,7 @@ abstract class AbstractPart
         }
         $fontStyle = $this->readFontStyle($xmlReader, $domNode);
 
-        // Link
+        
         if ($domNode->nodeName == 'w:hyperlink') {
             $rId = $xmlReader->getAttribute('r:id', $domNode);
             $textContent = $xmlReader->getValue('w:r/w:t', $domNode);
@@ -208,34 +208,34 @@ abstract class AbstractPart
                 $parent->addLink($target, $textContent, $fontStyle, $paragraphStyle);
             }
         } else {
-            // Footnote
+            
             if ($xmlReader->elementExists('w:footnoteReference', $domNode)) {
                 $parent->addFootnote();
 
-            // Endnote
+            
             } elseif ($xmlReader->elementExists('w:endnoteReference', $domNode)) {
                 $parent->addEndnote();
 
-            // Image
+            
             } elseif ($xmlReader->elementExists('w:pict', $domNode)) {
                 $rId = $xmlReader->getAttribute('r:id', $domNode, 'w:pict/v:shape/v:imagedata');
                 $target = $this->getMediaTarget($docPart, $rId);
                 if (!is_null($target)) {
-                    $imageSource = "zip://{$this->docFile}#{$target}";
+                    $imageSource = "zip:
                     $parent->addImage($imageSource);
                 }
 
-            // Object
+            
             } elseif ($xmlReader->elementExists('w:object', $domNode)) {
                 $rId = $xmlReader->getAttribute('r:id', $domNode, 'w:object/o:OLEObject');
-                // $rIdIcon = $xmlReader->getAttribute('r:id', $domNode, 'w:object/v:shape/v:imagedata');
+                
                 $target = $this->getMediaTarget($docPart, $rId);
                 if (!is_null($target)) {
                     $textContent = "<Object: {$target}>";
                     $parent->addText($textContent, $fontStyle, $paragraphStyle);
                 }
 
-            // TextRun
+            
             } else {
                 $textContent = $xmlReader->getValue('w:t', $domNode);
                 $parent->addText($textContent, $fontStyle, $paragraphStyle);
@@ -254,7 +254,7 @@ abstract class AbstractPart
      */
     protected function readTable(XMLReader $xmlReader, \DOMElement $domNode, $parent, $docPart = 'document')
     {
-        // Table style
+        
         $tblStyle = null;
         if ($xmlReader->elementExists('w:tblPr', $domNode)) {
             $tblStyle = $this->readTableStyle($xmlReader, $domNode);
@@ -264,10 +264,10 @@ abstract class AbstractPart
         $table = $parent->addTable($tblStyle);
         $tblNodes = $xmlReader->getElements('*', $domNode);
         foreach ($tblNodes as $tblNode) {
-            if ($tblNode->nodeName == 'w:tblGrid') { // Column
-                // @todo Do something with table columns
+            if ($tblNode->nodeName == 'w:tblGrid') { 
+                
 
-            } elseif ($tblNode->nodeName == 'w:tr') { // Row
+            } elseif ($tblNode->nodeName == 'w:tr') { 
                 $rowHeight = $xmlReader->getAttribute('w:val', $tblNode, 'w:trPr/w:trHeight');
                 $rowHRule = $xmlReader->getAttribute('w:hRule', $tblNode, 'w:trPr/w:trHeight');
                 $rowHRule = $rowHRule == 'exact' ? true : false;
@@ -280,10 +280,10 @@ abstract class AbstractPart
                 $row = $table->addRow($rowHeight, $rowStyle);
                 $rowNodes = $xmlReader->getElements('*', $tblNode);
                 foreach ($rowNodes as $rowNode) {
-                    if ($rowNode->nodeName == 'w:trPr') { // Row style
-                        // @todo Do something with row style
+                    if ($rowNode->nodeName == 'w:trPr') { 
+                        
 
-                    } elseif ($rowNode->nodeName == 'w:tc') { // Cell
+                    } elseif ($rowNode->nodeName == 'w:tc') { 
                         $cellWidth = $xmlReader->getAttribute('w:w', $rowNode, 'w:tcPr/w:tcW');
                         $cellStyle = null;
                         $cellStyleNode = $xmlReader->getElement('w:tcPr', $rowNode);
@@ -294,7 +294,7 @@ abstract class AbstractPart
                         $cell = $row->addCell($cellWidth, $cellStyle);
                         $cellNodes = $xmlReader->getElements('*', $rowNode);
                         foreach ($cellNodes as $cellNode) {
-                            if ($cellNode->nodeName == 'w:p') { // Paragraph
+                            if ($cellNode->nodeName == 'w:p') { 
                                 $this->readParagraph($xmlReader, $cellNode, $cell, $docPart);
                             }
                         }
@@ -348,7 +348,7 @@ abstract class AbstractPart
         if (is_null($domNode)) {
             return null;
         }
-        // Hyperlink has an extra w:r child
+        
         if ($domNode->nodeName == 'w:hyperlink') {
             $domNode = $xmlReader->getElement('w:r', $domNode);
         }
@@ -399,7 +399,7 @@ abstract class AbstractPart
             } else {
                 $styleNode = $xmlReader->getElement('w:tblPr', $domNode);
                 $styleDefs = array();
-                // $styleDefs['styleName'] = array(self::READ_VALUE, 'w:tblStyle');
+                
                 foreach ($margins as $side) {
                     $ucfSide = ucfirst($side);
                     $styleDefs["cellMargin$ucfSide"] = array(self::READ_VALUE, "w:tblCellMar/w:$side", 'w:w');
@@ -455,7 +455,7 @@ abstract class AbstractPart
             if ($xmlReader->elementExists($element, $parentNode)) {
                 $node = $xmlReader->getElement($element, $parentNode);
 
-                // Use w:val as default if no attribute assigned
+                
                 $attribute = ($attribute === null) ? 'w:val' : $attribute;
                 $attributeValue = $xmlReader->getAttribute($attribute, $node);
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\RTF\Part;
@@ -25,7 +26,7 @@ use PhpOffice\PhpWord\Writer\RTF\Style\Section as SectionStyleWriter;
  * RTF document part writer
  *
  * @since 0.11.0
- * @link http://www.biblioscape.com/rtf15_spec.htm#Heading24
+ * @link http:
  */
 class Document extends AbstractPart
 {
@@ -53,10 +54,14 @@ class Document extends AbstractPart
     private function writeInfo()
     {
         $docProps = $this->getParentWriter()->getPhpWord()->getDocInfo();
-        $properties = array('title', 'subject', 'category', 'keywords', 'comment',
-            'author', 'operator', 'creatim', 'revtim', 'company', 'manager');
-        $mapping = array('comment' => 'description', 'author' => 'creator', 'operator' => 'lastModifiedBy',
-            'creatim' => 'created', 'revtim' => 'modified');
+        $properties = array(
+            'title', 'subject', 'category', 'keywords', 'comment',
+            'author', 'operator', 'creatim', 'revtim', 'company', 'manager'
+        );
+        $mapping = array(
+            'comment' => 'description', 'author' => 'creator', 'operator' => 'lastModifiedBy',
+            'creatim' => 'created', 'revtim' => 'modified'
+        );
         $dateFields = array('creatim', 'revtim');
 
         $content = '';
@@ -84,15 +89,15 @@ class Document extends AbstractPart
     {
         $content = '';
 
-        $content .= '\deftab720'; // Set the default tab size (720 twips)
-        $content .= '\viewkind1'; // Set the view mode of the document
+        $content .= '\deftab720';
+        $content .= '\viewkind1';
 
-        $content .= '\uc1'; // Set the numberof bytes that follows a unicode character
-        $content .= '\pard'; // Resets to default paragraph properties.
-        $content .= '\nowidctlpar'; // No widow/orphan control
-        $content .= '\lang1036'; // Applies a language to a text run (1036 : French (France))
-        $content .= '\kerning1'; // Point size (in half-points) above which to kern character pairs
-        $content .= '\fs' . (Settings::getDefaultFontSize() * 2); // Set the font size in half-points
+        $content .= '\uc1';
+        $content .= '\pard';
+        $content .= '\nowidctlpar';
+        $content .= '\lang1036';
+        $content .= '\kerning1';
+        $content .= '\fs' . (Settings::getDefaultFontSize() * 2);
         $content .= PHP_EOL;
 
         return $content;

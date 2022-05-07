@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Element;
@@ -21,7 +22,7 @@ namespace PhpOffice\PhpWord\Element;
  * Field element
  *
  * @since 0.11.0
- * @link http://www.schemacentral.com/sc/ooxml/t-w_CT_SimpleField.html
+ * @link http:
  */
 class Field extends AbstractElement
 {
@@ -32,26 +33,28 @@ class Field extends AbstractElement
      * @var array
      */
     protected $fieldsArray = array(
-        'PAGE'=>array(
-           'properties'=>array(
-               'format' => array('Arabic', 'ArabicDash', 'alphabetic', 'ALPHABETIC', 'roman', 'ROMAN'),
-           ),
-           'options'=>array('PreserveFormat')
-        ),
-        'NUMPAGES'=>array(
-           'properties'=>array(
-               'format' => array('Arabic', 'ArabicDash', 'alphabetic', 'ALPHABETIC', 'roman', 'ROMAN'),
-               'numformat' => array('0', '0,00', '#.##0', '#.##0,00', '€ #.##0,00(€ #.##0,00)', '0%', '0,00%')
-           ),
-           'options'=>array('PreserveFormat')
-        ),
-        'DATE'=>array(
-            'properties'=> array(
-               'dateformat' =>array('d-M-yyyy', 'dddd d MMMM yyyy', 'd MMMM yyyy', 'd-M-yy', 'yyyy-MM-dd',
-                    'd-MMM-yy', 'd/M/yyyy', 'd MMM. yy', 'd/M/yy', 'MMM-yy', 'd-M-yyy H:mm', 'd-M-yyyy H:mm:ss',
-                    'h:mm am/pm', 'h:mm:ss am/pm', 'HH:mm', 'HH:mm:ss')
+        'PAGE' => array(
+            'properties' => array(
+                'format' => array('Arabic', 'ArabicDash', 'alphabetic', 'ALPHABETIC', 'roman', 'ROMAN'),
             ),
-            'options'=>array('PreserveFormat', 'LunarCalendar', 'SakaEraCalendar', 'LastUsedFormat')
+            'options' => array('PreserveFormat')
+        ),
+        'NUMPAGES' => array(
+            'properties' => array(
+                'format' => array('Arabic', 'ArabicDash', 'alphabetic', 'ALPHABETIC', 'roman', 'ROMAN'),
+                'numformat' => array('0', '0,00', '#.##0', '#.##0,00', '€ #.##0,00(€ #.##0,00)', '0%', '0,00%')
+            ),
+            'options' => array('PreserveFormat')
+        ),
+        'DATE' => array(
+            'properties' => array(
+                'dateformat' => array(
+                    'd-M-yyyy', 'dddd d MMMM yyyy', 'd MMMM yyyy', 'd-M-yy', 'yyyy-MM-dd',
+                    'd-MMM-yy', 'd/M/yyyy', 'd MMM. yy', 'd/M/yy', 'MMM-yy', 'd-M-yyy H:mm', 'd-M-yyyy H:mm:ss',
+                    'h:mm am/pm', 'h:mm:ss am/pm', 'HH:mm', 'HH:mm:ss'
+                )
+            ),
+            'options' => array('PreserveFormat', 'LunarCalendar', 'SakaEraCalendar', 'LastUsedFormat')
         )
     );
 

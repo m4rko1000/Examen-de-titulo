@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Style;
@@ -66,10 +67,10 @@ class Table extends AbstractStyle
      */
     private function writeStyle(XMLWriter $xmlWriter, TableStyle $style)
     {
-        // w:tblPr
+
         $xmlWriter->startElement('w:tblPr');
 
-        // Alignment
+
         $styleWriter = new Alignment($xmlWriter, new AlignmentStyle(array('value' => $style->getAlign())));
         $styleWriter->write();
 
@@ -77,11 +78,11 @@ class Table extends AbstractStyle
         $this->writeMargin($xmlWriter, $style);
         $this->writeBorder($xmlWriter, $style);
 
-        $xmlWriter->endElement(); // w:tblPr
+        $xmlWriter->endElement();
 
         $this->writeShading($xmlWriter, $style);
 
-        // First row style
+
         $firstRow = $style->getFirstRow();
         if ($firstRow instanceof TableStyle) {
             $this->writeFirstRow($xmlWriter, $firstRow);
@@ -101,7 +102,7 @@ class Table extends AbstractStyle
         $xmlWriter->startElement('w:tblW');
         $xmlWriter->writeAttribute('w:w', $width);
         $xmlWriter->writeAttribute('w:type', $unit);
-        $xmlWriter->endElement(); // w:tblW
+        $xmlWriter->endElement();
     }
 
     /**
@@ -120,7 +121,7 @@ class Table extends AbstractStyle
             $styleWriter->setSizes($style->getCellMargin());
             $styleWriter->write();
 
-            $xmlWriter->endElement(); // w:tblCellMar
+            $xmlWriter->endElement();
         }
     }
 
@@ -141,7 +142,7 @@ class Table extends AbstractStyle
             $styleWriter->setColors($style->getBorderColor());
             $styleWriter->write();
 
-            $xmlWriter->endElement(); // w:tblBorders
+            $xmlWriter->endElement();
         }
     }
 
@@ -161,8 +162,8 @@ class Table extends AbstractStyle
         $this->writeBorder($xmlWriter, $style);
         $this->writeShading($xmlWriter, $style);
 
-        $xmlWriter->endElement(); // w:tcPr
-        $xmlWriter->endElement(); // w:tblStylePr
+        $xmlWriter->endElement();
+        $xmlWriter->endElement();
     }
 
     /**

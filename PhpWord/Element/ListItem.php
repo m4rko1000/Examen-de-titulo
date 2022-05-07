@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Element;
@@ -60,7 +61,7 @@ class ListItem extends AbstractElement
         $this->textObject = new Text(String::toUTF8($text), $fontStyle, $paragraphStyle);
         $this->depth = $depth;
 
-        // Version >= 0.10.0 will pass numbering style name. Older version will use old method
+
         if (!is_null($listStyle) && is_string($listStyle)) {
             $this->style = new ListItemStyle($listStyle);
         } else {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord;
@@ -46,13 +47,13 @@ class Media
      */
     public static function addElement($container, $mediaType, $source, Image $image = null)
     {
-        // Assign unique media Id and initiate media container if none exists
+
         $mediaId = md5($container . $source);
         if (!isset(self::$elements[$container])) {
             self::$elements[$container] = array();
         }
 
-        // Add media if not exists or point to existing media
+
         if (!isset(self::$elements[$container][$mediaId])) {
             $mediaCount = self::countElements($container);
             $mediaTypeCount = self::countElements($container, $mediaType);
@@ -62,7 +63,7 @@ class Media
             $mediaData = array('mediaIndex' => $mediaTypeCount);
 
             switch ($mediaType) {
-                // Images
+
                 case 'image':
                     if (is_null($image)) {
                         throw new Exception('Image object not assigned.');
@@ -81,12 +82,12 @@ class Media
                     $image->setMediaIndex($mediaTypeCount);
                     break;
 
-                // Objects
+
                 case 'object':
                     $target = "{$container}_oleObject{$mediaTypeCount}.bin";
                     break;
 
-                // Links
+
                 case 'link':
                     $target = $source;
                     break;
@@ -147,7 +148,7 @@ class Media
     {
         $elements = array();
 
-        // If header/footer, search for headerx and footerx where x is number
+
         if ($container == 'header' || $container == 'footer') {
             foreach (self::$elements as $key => $val) {
                 if (substr($key, 0, 6) == $container) {

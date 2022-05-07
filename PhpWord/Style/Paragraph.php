@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Style;
@@ -45,7 +46,7 @@ use PhpOffice\PhpWord\Shared\String;
  * - Borders
  * - Background
  *
- * @link http://www.schemacentral.com/sc/ooxml/t-w_CT_PPr.html
+ * @link http:
  */
 class Paragraph extends Border
 {
@@ -180,7 +181,7 @@ class Paragraph extends Border
         if ($key == 'indent' || $key == 'hanging') {
             $value = $value * 720;
         } elseif ($key == 'spacing') {
-            $value += 240; // because line height of 1 matches 240 twips
+            $value += 240;
         }
 
         return parent::setStyleValue($key, $value);

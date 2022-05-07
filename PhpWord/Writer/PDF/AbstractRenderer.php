@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PhpWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\PDF;
@@ -70,7 +71,7 @@ abstract class AbstractRenderer extends HTML
      * @var array
      */
     protected static $paperSizes = array(
-        9 => 'A4', // (210 mm by 297 mm)
+        9 => 'A4',
     );
 
     /**
@@ -87,10 +88,9 @@ abstract class AbstractRenderer extends HTML
             /** @noinspection PhpIncludeInspection Dynamic includes */
             require_once $includeFile;
         } else {
-            // @codeCoverageIgnoreStart
-            // Can't find any test case. Uncomment when found.
+
+
             throw new Exception('Unable to load PDF Rendering library');
-            // @codeCoverageIgnoreEnd
         }
     }
 
@@ -175,12 +175,12 @@ abstract class AbstractRenderer extends HTML
     protected function prepareForSave($filename = null)
     {
         $fileHandle = fopen($filename, 'w');
-        // @codeCoverageIgnoreStart
-        // Can't find any test case. Uncomment when found.
+
+
         if ($fileHandle === false) {
             throw new Exception("Could not open file $filename for writing.");
         }
-        // @codeCoverageIgnoreEnd
+
         $this->isPdf = true;
 
         return $fileHandle;

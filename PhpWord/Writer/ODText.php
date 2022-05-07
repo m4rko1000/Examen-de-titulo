@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer;
@@ -34,10 +35,10 @@ class ODText extends AbstractWriter implements WriterInterface
      */
     public function __construct(PhpWord $phpWord = null)
     {
-        // Assign PhpWord
+
         $this->setPhpWord($phpWord);
 
-        // Create parts
+
         $this->parts = array(
             'Mimetype'  => 'mimetype',
             'Content'   => 'content.xml',
@@ -55,7 +56,7 @@ class ODText extends AbstractWriter implements WriterInterface
             }
         }
 
-        // Set package paths
+
         $this->mediaPaths = array('image' => 'Pictures/');
     }
 
@@ -70,20 +71,20 @@ class ODText extends AbstractWriter implements WriterInterface
         $filename = $this->getTempFile($filename);
         $zip = $this->getZipArchive($filename);
 
-        // Add section media files
+
         $sectionMedia = Media::getElements('section');
         if (!empty($sectionMedia)) {
             $this->addFilesToPackage($zip, $sectionMedia);
         }
 
-        // Write parts
+
         foreach ($this->parts as $partName => $fileName) {
             if ($fileName != '') {
                 $zip->addFromString($fileName, $this->getWriterPart($partName)->write());
             }
         }
 
-        // Close zip archive and cleanup temp file
+
         $zip->close();
         $this->cleanupTempFile();
     }

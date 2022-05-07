@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Reader\RTF;
@@ -23,9 +24,9 @@ use PhpOffice\PhpWord\PhpWord;
  * RTF document reader
  *
  * References:
- * - How to Write an RTF Reader http://latex2rtf.sourceforge.net/rtfspec_45.html
- * - PHP rtfclass by Markus Fischer https://github.com/mfn/rtfclass
- * - JavaScript RTF-parser by LazyGyu https://github.com/lazygyu/RTF-parser
+ * - How to Write an RTF Reader http:
+ * - PHP rtfclass by Markus Fischer https:
+ * - JavaScript RTF-parser by LazyGyu https:
  *
  * @since 0.11.0
  * @SuppressWarnings(PHPMD.UnusedPrivateMethod)
@@ -136,11 +137,11 @@ class Document
     public function read(PhpWord $phpWord)
     {
         $markers = array(
-            123 => 'markOpening',   // {
-            125 => 'markClosing',   // }
-            92  => 'markBackslash', // \
-            10  => 'markNewline',   // LF
-            13  => 'markNewline'    // CR
+            123 => 'markOpening',
+            125 => 'markClosing',
+            92  => 'markBackslash',
+            10  => 'markNewline',
+            13  => 'markNewline'
         );
 
         $this->phpWord = $phpWord;
@@ -148,28 +149,28 @@ class Document
         $this->textrun = $this->section->addTextRun();
         $this->length = strlen($this->rtf);
 
-        $this->flags['paragraph'] = true; // Set paragraph flag from the beginning
+        $this->flags['paragraph'] = true;
 
-        // Walk each characters
+
         while ($this->offset < $this->length) {
             $char  = $this->rtf[$this->offset];
             $ascii = ord($char);
 
-            if (isset($markers[$ascii])) { // Marker found: {, }, \, LF, or CR
+            if (isset($markers[$ascii])) {
                 $markerFunction = $markers[$ascii];
                 $this->$markerFunction();
             } else {
-                if ($this->isControl === false) { // Non control word: Push character
+                if ($this->isControl === false) {
                     $this->pushText($char);
                 } else {
-                    if (preg_match("/^[a-zA-Z0-9-]?$/", $char)) { // No delimiter: Buffer control
+                    if (preg_match("/^[a-zA-Z0-9-]?$/", $char)) {
                         $this->control .= $char;
                         $this->isFirst = false;
-                    } else { // Delimiter found: Parse buffered control
+                    } else {
                         if ($this->isFirst) {
                             $this->isFirst = false;
                         } else {
-                            if ($char == ' ') { // Discard space as a control word delimiter
+                            if ($char == ' ') {
                                 $this->flushControl(true);
                             }
                         }
@@ -273,16 +274,16 @@ class Document
     private function flushText()
     {
         if ($this->text != '') {
-            if (isset($this->flags['property'])) { // Set property
+            if (isset($this->flags['property'])) {
                 $this->flags['value'] = $this->text;
-            } else { // Set text
+            } else {
                 if ($this->flags['paragraph'] === true) {
                     $this->flags['paragraph'] = false;
                     $this->flags['text'] = $this->text;
                 }
             }
 
-            // Add text if it's not flagged as skipped
+
             if (!isset($this->flags['skipped'])) {
                 $this->readText();
             }
@@ -334,7 +335,7 @@ class Document
             'b'         => array(self::STYL,    'font',         'bold',         true),
             'i'         => array(self::STYL,    'font',         'italic',       true),
             'u'         => array(self::STYL,    'font',         'underline',    true),
-            'strike'    => array(self::STYL,    'font',         'strikethrough',true),
+            'strike'    => array(self::STYL,    'font',         'strikethrough', true),
             'fs'        => array(self::STYL,    'font',         'size',         $parameter),
             'qc'        => array(self::STYL,    'paragraph',    'align',        'center'),
             'sa'        => array(self::STYL,    'paragraph',    'spaceAfter',   $parameter),
@@ -355,7 +356,7 @@ class Document
             list($function) = $controls[$control];
             if (method_exists($this, $function)) {
                 $directives = $controls[$control];
-                array_shift($directives); // remove the function variable; we won't need it
+                array_shift($directives);
                 $this->$function($directives);
             }
         }

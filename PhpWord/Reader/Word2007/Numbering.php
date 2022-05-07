@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Reader\Word2007;
@@ -40,7 +41,7 @@ class Numbering extends AbstractPart
         $xmlReader = new XMLReader();
         $xmlReader->getDomFromZip($this->docFile, $this->xmlFile);
 
-        // Abstract numbering definition
+
         $nodes = $xmlReader->getElements('w:abstractNum');
         if ($nodes->length > 0) {
             foreach ($nodes as $node) {
@@ -62,7 +63,7 @@ class Numbering extends AbstractPart
             }
         }
 
-        // Numbering instance definition
+
         $nodes = $xmlReader->getElements('w:num');
         if ($nodes->length > 0) {
             foreach ($nodes as $node) {
@@ -81,7 +82,7 @@ class Numbering extends AbstractPart
             }
         }
 
-        // Push to Style collection
+
         foreach ($numberings as $numId => $numbering) {
             $phpWord->addNumberingStyle("PHPWordList{$numId}", $numbering);
         }

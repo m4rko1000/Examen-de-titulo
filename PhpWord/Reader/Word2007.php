@@ -8,11 +8,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Reader;
@@ -106,10 +106,10 @@ class Word2007 extends AbstractReader implements ReaderInterface
     {
         $relationships = array();
 
-        // _rels/.rels
+        
         $relationships['main'] = $this->getRels($docFile, '_rels/.rels');
 
-        // word/_rels/*.xml.rels
+        
         $wordRelsPath = 'word/_rels/';
         $zip = new ZipArchive();
         if ($zip->open($docFile) === true) {
@@ -136,8 +136,8 @@ class Word2007 extends AbstractReader implements ReaderInterface
      */
     private function getRels($docFile, $xmlFile, $targetPrefix = '')
     {
-        $metaPrefix = 'http://schemas.openxmlformats.org/package/2006/relationships/metadata/';
-        $officePrefix = 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/';
+        $metaPrefix = 'http:
+        $officePrefix = 'http:
 
         $rels = array();
 
@@ -149,17 +149,17 @@ class Word2007 extends AbstractReader implements ReaderInterface
             $type = $xmlReader->getAttribute('Type', $node);
             $target = $xmlReader->getAttribute('Target', $node);
 
-            // Remove URL prefixes from $type to make it easier to read
+            
             $type = str_replace($metaPrefix, '', $type);
             $type = str_replace($officePrefix, '', $type);
             $docPart = str_replace('.xml', '', $target);
 
-            // Do not add prefix to link source
+            
             if (!in_array($type, array('hyperlink'))) {
                 $target = $targetPrefix . $target;
             }
 
-            // Push to return array
+            
             $rels[$rId] = array('type' => $type, 'target' => $target, 'docPart' => $docPart);
         }
         ksort($rels);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Style;
@@ -20,9 +21,9 @@ namespace PhpOffice\PhpWord\Style;
 /**
  * Numbering style
  *
- * @link http://www.schemacentral.com/sc/ooxml/e-w_numbering.html
- * @link http://www.schemacentral.com/sc/ooxml/e-w_abstractNum-1.html
- * @link http://www.schemacentral.com/sc/ooxml/e-w_num-1.html
+ * @link http:
+ * @link http:
+ * @link http:
  * @since 0.10.0
  */
 class Numbering extends AbstractStyle
@@ -31,7 +32,7 @@ class Numbering extends AbstractStyle
      * Numbering definition instance ID
      *
      * @var int
-     * @link http://www.schemacentral.com/sc/ooxml/e-w_num-1.html
+     * @link http:
      */
     private $numId;
 
@@ -39,7 +40,7 @@ class Numbering extends AbstractStyle
      * Multilevel type singleLevel|multilevel|hybridMultilevel
      *
      * @var string
-     * @link http://www.schemacentral.com/sc/ooxml/a-w_val-67.html
+     * @link http:
      */
     private $type;
 

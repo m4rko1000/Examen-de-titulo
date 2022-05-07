@@ -49,7 +49,7 @@ $table1->addCell(3000)->addText($al->getStatus()->name);
 
 
 $word->addTableStyle('table1', $styleTable,$styleFirstRow);
-/// datos bancarios
+
 $section1->addText("");
 $section1->addText("");
 $section1->addText("");
@@ -57,11 +57,7 @@ $section1->addText("Generado por BookMedik v2.5");
 $filename = "report-".time().".docx";
 #$word->setReadDataOnly(true);
 $word->save($filename,"Word2007");
-//chmod($filename,0444);
+
 header("Content-Disposition: attachment; filename='$filename'");
-readfile($filename); // or echo file_get_contents($filename);
-unlink($filename);  // remove temp file
-
-
-
-?>
+readfile($filename); 
+unlink($filename);

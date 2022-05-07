@@ -1,7 +1,7 @@
 <?php
 
 
-// Bootload.php
+
 
 class Bootload {
 	/**
@@ -9,7 +9,7 @@ class Bootload {
 	* @brief la funcion load carga un boot correspondiente a un modulo
 	**/	
 	public static function load($view){
-		// Module::$module;
+		
 		if(!isset($_GET['view'])){
 			include "core/modules/".Module::$module."/boot/".$view."/boot-default.php";
 		}else{
@@ -42,8 +42,3 @@ class Bootload {
 	}
 
 }
-
-
-
-
-?>

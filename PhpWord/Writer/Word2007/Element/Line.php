@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of PHPWord - A pure PHP library for reading and writing
  * word processing documents.
@@ -8,11 +9,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord\Writer\Word2007\Element;
@@ -52,7 +53,7 @@ class Line extends AbstractElement
         $xmlWriter->startElement('w:r');
         $xmlWriter->startElement('w:pict');
 
-        // Shapetype could be defined for each line separately, but then a unique id would be necessary
+
         if ($elementId == 1) {
             $xmlWriter->startElement('v:shapetype');
             $xmlWriter->writeAttribute('id', '_x0000_t32');
@@ -65,26 +66,26 @@ class Line extends AbstractElement
             $xmlWriter->writeAttribute('arrowok', 't');
             $xmlWriter->writeAttribute('fillok', 'f');
             $xmlWriter->writeAttribute('o:connecttype', 'none');
-            $xmlWriter->endElement(); // v:path
+            $xmlWriter->endElement();
             $xmlWriter->startElement('o:lock');
             $xmlWriter->writeAttribute('v:ext', 'edit');
             $xmlWriter->writeAttribute('shapetype', 't');
-            $xmlWriter->endElement(); // o:lock
-            $xmlWriter->endElement(); // v:shapetype
+            $xmlWriter->endElement();
+            $xmlWriter->endElement();
         }
 
         $xmlWriter->startElement('v:shape');
         $xmlWriter->writeAttribute('id', sprintf('_x0000_s1%1$03d', $elementId));
-        $xmlWriter->writeAttribute('type', '#_x0000_t32'); //type should correspond to shapetype id
+        $xmlWriter->writeAttribute('type', '#_x0000_t32');
 
         $styleWriter->write();
         $styleWriter->writeStroke();
 
-        $xmlWriter->endElement(); // v:shape
+        $xmlWriter->endElement();
 
-        $xmlWriter->endElement(); // w:pict
-        $xmlWriter->endElement(); // w:r
+        $xmlWriter->endElement();
+        $xmlWriter->endElement();
 
-        $this->endElementP(); // w:p
+        $this->endElementP();
     }
 }

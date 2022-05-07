@@ -29,7 +29,7 @@ class EditorialData {
 		Executor::doit($sql);
 	}
 
-// partiendo de que ya tenemos creado un objecto EditorialData previamente utilizamos el contexto
+
 	public function update(){
 		$sql = "update ".self::$tablename." set name=\"$this->name\",direccion=\"$this->direccion\",contacto=\"$this->contacto\" where id=$this->id";
 		Executor::doit($sql);
@@ -56,5 +56,3 @@ class EditorialData {
 
 
 }
-
-?>

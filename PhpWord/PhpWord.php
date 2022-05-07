@@ -8,11 +8,11 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/PHPWord/contributors.
+ * contributors, visit https:
  *
- * @link        https://github.com/PHPOffice/PHPWord
+ * @link        https:
  * @copyright   2010-2014 PHPWord contributors
- * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
+ * @license     http:
  */
 
 namespace PhpOffice\PhpWord;
@@ -82,14 +82,14 @@ class PhpWord
      */
     public function __construct()
     {
-        // Collection
+        
         $collections = array('Bookmarks', 'Titles', 'Footnotes', 'Endnotes', 'Charts');
         foreach ($collections as $collection) {
             $class = 'PhpOffice\\PhpWord\\Collection\\' . $collection;
             $this->collections[$collection] = new $class();
         }
 
-        // Metadata
+        
         $metadata = array('DocInfo', 'Protection', 'Compatibility');
         foreach ($metadata as $meta) {
             $class = 'PhpOffice\\PhpWord\\Metadata\\' . $meta;
@@ -125,14 +125,14 @@ class PhpWord
             $addStyle[] = strtolower("add{$style}Style");
         }
 
-        // Run get collection method
+        
         if (in_array($function, $getCollection)) {
             $key = ucfirst(str_replace('get', '', $function));
 
             return $this->collections[$key];
         }
 
-        // Run add collection item method
+        
         if (in_array($function, $addCollection)) {
             $key = ucfirst(str_replace('add', '', $function) . 's');
 
@@ -142,12 +142,12 @@ class PhpWord
             return $collectionObject->addItem(isset($args[0]) ? $args[0] : null);
         }
 
-        // Run add style method
+        
         if (in_array($function, $addStyle)) {
             return forward_static_call_array(array('PhpOffice\\PhpWord\\Style', $function), $args);
         }
 
-        // Exception
+        
         throw new \BadMethodCallException("Method $function is not defined.");
     }
 
@@ -308,7 +308,7 @@ class PhpWord
             header('Content-Transfer-Encoding: binary');
             header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
             header('Expires: 0');
-            $filename = 'php://output'; // Change filename to force download
+            $filename = 'php:
         }
 
         $writer->save($filename);
